@@ -10,67 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_133246) do
+ActiveRecord::Schema.define(version: 2021_07_15_081756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
-
-  create_table "blazer_audits", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "query_id"
-    t.text "statement"
-    t.string "data_source"
-    t.datetime "created_at"
-    t.index ["query_id"], name: "index_blazer_audits_on_query_id"
-    t.index ["user_id"], name: "index_blazer_audits_on_user_id"
-  end
-
-  create_table "blazer_checks", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.bigint "query_id"
-    t.string "state"
-    t.string "schedule"
-    t.text "emails"
-    t.text "slack_channels"
-    t.string "check_type"
-    t.text "message"
-    t.datetime "last_run_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_checks_on_creator_id"
-    t.index ["query_id"], name: "index_blazer_checks_on_query_id"
-  end
-
-  create_table "blazer_dashboard_queries", force: :cascade do |t|
-    t.bigint "dashboard_id"
-    t.bigint "query_id"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dashboard_id"], name: "index_blazer_dashboard_queries_on_dashboard_id"
-    t.index ["query_id"], name: "index_blazer_dashboard_queries_on_query_id"
-  end
-
-  create_table "blazer_dashboards", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.text "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_dashboards_on_creator_id"
-  end
-
-  create_table "blazer_queries", force: :cascade do |t|
-    t.bigint "creator_id"
-    t.string "name"
-    t.text "description"
-    t.text "statement"
-    t.string "data_source"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
-  end
 
   create_table "decidim_accountability_results", id: :serial, force: :cascade do |t|
     t.jsonb "title"
@@ -769,19 +714,20 @@ ActiveRecord::Schema.define(version: 2021_05_21_133246) do
     t.datetime "updated_at", null: false
     t.string "banner_image"
     t.boolean "collect_user_extra_fields", default: false
+    t.boolean "online_signature_enabled", default: true, null: false
     t.jsonb "extra_fields_legal_information"
     t.integer "minimum_committee_members"
     t.boolean "validate_sms_code_on_votes", default: false
     t.string "document_number_authorization_handler"
     t.boolean "undo_online_signatures_enabled", default: true, null: false
     t.boolean "promoting_committee_enabled", default: true, null: false
-    t.integer "signature_type", default: 0, null: false
     t.boolean "comments_enabled", default: true, null: false
     t.boolean "child_scope_threshold_enabled", default: false, null: false
     t.boolean "only_global_scope_enabled", default: false, null: false
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
+    t.date "global_signature_end_date"
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -1040,7 +986,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_133246) do
     t.jsonb "colors", default: {}
     t.boolean "force_users_to_authenticate_before_access_organization", default: false
     t.jsonb "omniauth_settings"
-    t.string "online_signature_types", default: [], array: true
     t.boolean "rich_text_editor_in_public_views", default: false
     t.jsonb "admin_terms_of_use_body"
     t.string "time_zone", limit: 255, default: "UTC"
@@ -1562,11 +1507,11 @@ ActiveRecord::Schema.define(version: 2021_05_21_133246) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "full_address"
+    t.datetime "custom_agreement_at"
     t.string "session_token"
     t.string "direct_message_types", default: "all", null: false
     t.datetime "admin_terms_accepted_at"
-    t.string "full_address"
-    t.datetime "custom_agreement_at"
     t.jsonb "address", default: {}, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
