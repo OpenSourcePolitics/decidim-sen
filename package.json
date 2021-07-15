@@ -1,5 +1,4 @@
 {
   "name": "decidim-aws",
-  "private": true,
-  "dependencies": {}
+  "private": true
 }
