@@ -1,11 +1,11 @@
 # frozen_string_literal: true
+
 require "active_support/concern"
 
 module UpdateAccountExtend
   extend ActiveSupport::Concern
 
   included do
-
     private
 
     def update_personal_data

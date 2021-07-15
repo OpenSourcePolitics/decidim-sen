@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-require 'active_support/concern'
+
+require "active_support/concern"
 
 module CreateOmniauthRegistrationExtend
   extend ActiveSupport::Concern
 
   included do
-
     def call
       verify_oauth_signature!
 
@@ -17,7 +17,7 @@ module CreateOmniauthRegistrationExtend
           return broadcast(:ok, user)
         end
 
-        if request.path.end_with?('france_connect_profile/callback')
+        if request.path.end_with?("france_connect_profile/callback")
           form.minimum_age
           return broadcast(:error, user)
         end
@@ -37,13 +37,14 @@ module CreateOmniauthRegistrationExtend
       end
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def create_or_find_user
       generated_password = SecureRandom.hex
 
       if (verified_email || form.email).blank?
-
         @user = Decidim::User.new(
-          email: '',
+          email: "",
           organization: organization,
           name: form.name,
           nickname: form.nickname,
@@ -54,10 +55,9 @@ module CreateOmniauthRegistrationExtend
           password: generated_password,
           password_confirmation: generated_password
         )
+
         @user.skip_confirmation!
-
       else
-
         @user = Decidim::User.find_or_initialize_by(
           email: (form.email || verified_email),
           organization: organization
@@ -72,18 +72,19 @@ module CreateOmniauthRegistrationExtend
           @user.password = generated_password
           @user.password_confirmation = generated_password
 
-
           # TODO: raise ActiveRecord::RecordInvalid because of quality setting on uploader, this line is a quick fix
-          @user.remote_avatar_url = form.avatar_url if form.avatar_url.present? && !form.avatar_url.end_with?('svg')
+          @user.remote_avatar_url = form.avatar_url if form.avatar_url.present? && !form.avatar_url.end_with?("svg")
           @user.skip_confirmation! if verified_email # unless verified_email != form.email
           @user.accept_invitation if @user.invited_to_sign_up?
           @after_confirmation = (verified_email != form.email)
         end
       end
 
-      @user.tos_agreement = '1'
+      @user.tos_agreement = "1"
       @user.save!
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
   end
 end
 

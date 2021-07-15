@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+
 if defined?(Decidim::Initiatives) && defined?(Decidim::Initiatives.do_not_require_authorization)
   Decidim::Initiatives.configure do |config|
-
     # Public Setting that defines the similarity minimum value to consider two
     # initiatives similar. Defaults to 0.25.
     # config.similarity_threshold = 0.25
@@ -32,6 +32,5 @@ if defined?(Decidim::Initiatives) && defined?(Decidim::Initiatives.do_not_requir
     # initialized with a string containing the data to be
     # timestamped and respond to a timestamp method
     config.timestamp_service = "Decidim::Initiatives::UtcTimestamp"
-
   end
 end

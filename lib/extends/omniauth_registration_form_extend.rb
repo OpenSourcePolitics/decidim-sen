@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "active_support/concern"
 require "valid_email2"
 
@@ -17,9 +18,9 @@ module OmniauthRegistrationFormExtend
     validates :provider, presence: true
     validates :uid, presence: true
 
-    validates :email, presence: true, unless: -> (form) { form.email.blank? }
+    validates :email, presence: true, unless: ->(form) { form.email.blank? }
 
-    validate :email, :email_is_unique, unless: -> (form) { form.email.blank? }
+    validate :email, :email_is_unique, unless: ->(form) { form.email.blank? }
 
     validate :minimum_age, if: -> { manifest.dig(:minimum_age).present? && raw_data.dig(:extra, :raw_info, :birthdate).present? }
 
@@ -46,7 +47,7 @@ module OmniauthRegistrationFormExtend
 
       return if minimum_age.blank?
 
-      Time.zone.now -  minimum_age.years
+      Time.zone.now - minimum_age.years
     end
 
     def birth_date

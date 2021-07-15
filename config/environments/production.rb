@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -20,10 +22,10 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(:harmony => true)
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -39,11 +41,11 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  if Rails.application.secrets.dig(:scaleway, :id).present?
-    config.active_storage.service = :amazon
-  else
-    config.active_storage.service = :local
-  end
+  config.active_storage.service = if Rails.application.secrets.dig(:scaleway, :id).present?
+                                    :amazon
+                                  else
+                                    :local
+                                  end
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
@@ -83,14 +85,14 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.smtp_settings = {
-      :address => Rails.application.secrets.smtp_address,
-      :port => Rails.application.secrets.smtp_port,
-      :authentication => Rails.application.secrets.smtp_authentication,
-      :user_name => Rails.application.secrets.smtp_username,
-      :password => Rails.application.secrets.smtp_password,
-      :domain => Rails.application.secrets.smtp_domain,
-      :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
-      :openssl_verify_mode => 'none'
+    address: Rails.application.secrets.smtp_address,
+    port: Rails.application.secrets.smtp_port,
+    authentication: Rails.application.secrets.smtp_authentication,
+    user_name: Rails.application.secrets.smtp_username,
+    password: Rails.application.secrets.smtp_password,
+    domain: Rails.application.secrets.smtp_domain,
+    enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
+    openssl_verify_mode: "none"
   }
 
   config.action_mailer.default_options = {
@@ -113,7 +115,5 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    config.cache_store = :dalli_store, Dalli::ElastiCache.new(ENV["ELASTICACHE_HOST"]).servers, { :expires_in => 1.day, :compress => true }
-  end
+  config.cache_store = :dalli_store, Dalli::ElastiCache.new(ENV["ELASTICACHE_HOST"]).servers, { expires_in: 1.day, compress: true } if ENV["RAILS_LOG_TO_STDOUT"].present?
 end
