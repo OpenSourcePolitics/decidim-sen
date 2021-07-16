@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_133246) do
+ActiveRecord::Schema.define(version: 2021_07_15_081756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -727,6 +727,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_133246) do
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
+    t.date "global_signature_end_date"
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
