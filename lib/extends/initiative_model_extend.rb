@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "active_support/concern"
 
 module InitiativeModelExtend
@@ -15,10 +16,10 @@ module InitiativeModelExtend
       return false if published?
 
       update(
-          published_at: Time.current,
-          state: "published",
-          signature_start_date: Date.current,
-          signature_end_date: signature_end_date || Date.new(2022,6,21)
+        published_at: Time.current,
+        state: "published",
+        signature_start_date: Date.current,
+        signature_end_date: signature_end_date || Date.new(2022, 6, 21)
       )
     end
   end

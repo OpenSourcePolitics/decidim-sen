@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/concern'
+require "active_support/concern"
 
 module DestroyAccountExtend
   extend ActiveSupport::Concern
@@ -32,7 +32,7 @@ module DestroyAccountExtend
 
     def manage_user_initiatives
       Decidim::Initiative.where(author: @user).each do |initiative|
-        initiative.update_columns(state: 'discarded')
+        initiative.update_columns(state: "discarded") # rubocop:disable Rails/SkipsModelValidations
       end
     end
 

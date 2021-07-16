@@ -34,12 +34,12 @@ gem "faker", "~> 1.9"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem 'activerecord-session_store'
+gem "activerecord-session_store"
 
 gem "omniauth_openid_connect", "0.3.1"
 
-gem "rubyzip", require: 'zip'
 gem "ruby-progressbar"
+gem "rubyzip", require: "zip"
 gem "sentry-raven"
 
 gem "dotenv-rails"
@@ -61,14 +61,14 @@ group :development do
 end
 
 group :production do
-  gem "passenger"
-  gem "fog-aws"
-  gem 'aws-sdk-s3'
+  gem "aws-sdk-s3"
   gem "dalli"
-  gem "sendgrid-ruby"
-  gem "newrelic_rpm"
+  gem "dalli-elasticache"
+  gem "fog-aws"
   gem "lograge"
+  gem "newrelic_rpm"
+  gem "passenger"
+  gem "sendgrid-ruby"
   gem "sidekiq"
   gem "sidekiq-scheduler"
-  gem "dalli-elasticache"
 end
