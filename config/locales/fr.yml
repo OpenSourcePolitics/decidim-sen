@@ -407,6 +407,8 @@ fr:
         navigation: Navigation
         sign_in: Sign in
         sign_up: Sign up
+      initiative_header_steps:
+        description: Description
       initiative_signature_creation_header:
         finished: Finished
       mailer:
