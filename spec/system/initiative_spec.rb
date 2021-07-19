@@ -47,7 +47,7 @@ describe "Initiative", type: :system do
 
     it "displays date" do
       within ".process-header__phase" do
-        expect(page).not_to have_content(I18n.l(base_initiative.signature_start_date, format: :decidim_short))
+        expect(page).to have_content(I18n.l(base_initiative.signature_start_date, format: :decidim_short))
         expect(page).to have_content(I18n.l(base_initiative.signature_end_date, format: :decidim_short))
       end
     end
