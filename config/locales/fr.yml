@@ -32,9 +32,9 @@ fr:
         alert: Alert
         confirm:
           close: Close
-          ok: Ok
+          ok: Oui, je souhaite supprimer mon compte
           question: Question
-          title: Title
+          title: Supprimer mon compte
         explanation: Explanation
       show:
         change_address: Modifier mon adresse
@@ -422,6 +422,6 @@ fr:
         authorizations: Voir les autorisations associées à votre compte
         back_to_account: Retour à votre compte
         my_data: My data
-        title: Title
+        title: Gestion de mon compte
   locale:
     name: Name

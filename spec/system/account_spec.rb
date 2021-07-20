@@ -29,6 +29,10 @@ describe "Account", type: :system do
       visit decidim.account_path
     end
 
+    it "doesn't display authorizations" do
+      expect(page).to have_no_content("Authorizations")
+    end
+
     describe "updating personal data" do
       it "updates the user's data" do
         within "form.edit_user" do
