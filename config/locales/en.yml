@@ -32,9 +32,9 @@ en:
         alert: Alert
         confirm:
           close: Close
-          ok: Ok
+          ok: Yes, I want to delete my account
           question: Question
-          title: Title
+          title: Delete my account
         explanation: Explanation
       show:
         change_address: Modifier mon adresse
@@ -411,6 +411,6 @@ en:
         authorizations: Voir les autorisations associées à votre compte
         back_to_account: Retour à votre compte
         my_data: My data
-        title: Title
+        title: My account
   locale:
     name: Name
