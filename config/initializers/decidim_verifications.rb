@@ -22,3 +22,7 @@ Decidim::Verifications.register_workflow(:france_connect_profile) do |workflow|
   workflow.anti_affinity = [:france_connect_uid]
   workflow.minimum_age = 18
 end
+
+Decidim::Verifications.register_workflow(:osp_authorization_handler) do |auth|
+  auth.form = "Decidim::OspAuthorizationHandler"
+end

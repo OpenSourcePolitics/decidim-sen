@@ -87,6 +87,9 @@ en:
         initiatives: Initiatives
     anonymous_user: Anonymous user
     authorization_handlers:
+      osp_authorization_handler:
+        explanation: OSP authorization
+        name: OSP Authorization handler
       admin:
         decidim:
           help:
