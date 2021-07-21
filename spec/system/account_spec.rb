@@ -38,7 +38,7 @@ describe "Account", type: :system do
         create(:organization, available_authorizations: authorizations)
       end
 
-      let(:authorizations) { ["france_connect_uid","france_connect_profile", "osp_authorization_handler"] }
+      let(:authorizations) { %w(france_connect_uid france_connect_profile osp_authorization_handler) }
 
       it "displays FC authorizations" do
         click_link "Authorizations"
@@ -52,7 +52,7 @@ describe "Account", type: :system do
     describe "updating personal data" do
       it "updates the user's data" do
         within "form.edit_user" do
-          expect(page).to have_field('user_name', readonly: true)
+          expect(page).to have_field("user_name", readonly: true)
 
           fill_in :user_email, with: "nikola.tesla@example.org"
 
@@ -76,6 +76,7 @@ describe "Account", type: :system do
         expect(find("#user_email").value).to eq(user.email)
         expect(last_email.subject).to include("Instructions de confirmation")
       end
+
       context "when on the delete account modal" do
         it "the user can delete his account" do
           find("input.open-modal-button[type=\"submit\"]").click
