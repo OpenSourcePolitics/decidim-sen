@@ -150,7 +150,6 @@ describe "Initiative", type: :system do
             expect(page).to have_selector("a[title=\"Share to Twitter\"]", count: 1)
             expect(page).to have_selector("a[title=\"Share to Facebook\"]", count: 1)
           end
-          expect(page).to have_selector("a[data-open=\"urlShare\"]")
         end
       end
     end

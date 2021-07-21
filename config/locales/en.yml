@@ -253,6 +253,8 @@ en:
         create:
           success_html: Success html
       initiatives:
+        share_buttons:
+          share_link: Share link
         filters:
           any: Any
           area: Area
