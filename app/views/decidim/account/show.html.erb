@@ -18,6 +18,9 @@
           <% end %>
         <% end %>
       <% end %>
+      <%= link_to decidim_verifications.authorizations_path, class: "button hollow expanded" do %>
+        <%= t("authorizations", scope: "layouts.decidim.user_profile") %>
+      <% end %>
       <%= link_to decidim.destroy_user_session_path, method: :delete, class: "button primary expanded" do %>
         <%= t("sign_out", scope: "layouts.decidim.user_menu") %>
       <% end %>

@@ -408,7 +408,7 @@ en:
         profile: Profile
         sign_out: Sign out
       user_profile:
-        authorizations: Authorizations
+        authorizations: Voir les autorisations associées à votre compte
         back_to_account: Retour à votre compte
         my_data: My data
         title: My account
