@@ -87,9 +87,6 @@ en:
         initiatives: Initiatives
     anonymous_user: Anonymous user
     authorization_handlers:
-      osp_authorization_handler:
-        explanation: OSP authorization
-        name: OSP Authorization handler
       admin:
         decidim:
           help:
@@ -123,6 +120,9 @@ en:
       granted_at: Granted at
       omniauth_anti_affinity:
         explanation: Explanation
+      osp_authorization_handler:
+        explanation: OSP authorization
+        name: OSP Authorization handler
       saml:
         explanation: Validate with your CSAM eID account
         name: CSAM eID
