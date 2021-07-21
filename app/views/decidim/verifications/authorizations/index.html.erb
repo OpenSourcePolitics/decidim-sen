@@ -6,6 +6,7 @@
     <% if @granted_authorizations.any? %>
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
+          <% next if authorization.name == "osp_authorization_handler" %>
           <% if authorization.expired? %>
             <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
             <%= link_to authorization_method.root_path do %>
@@ -21,6 +22,7 @@
     <% if @pending_authorizations.any? %>
       <div class="card card--list">
         <% @pending_authorizations.each do |authorization| %>
+          <% next if authorization.name == "osp_authorization_handler" %>
           <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
           <%= link_to authorization_method.resume_authorization_path do %>
             <div class="card--list__item">
@@ -49,6 +51,7 @@
     <% if unauthorized_methods.any? %>
       <div class="card card--list">
         <% unauthorized_methods.each do |unauthorized_method| %>
+          <% next if unauthorized_method.name == "osp_authorization_handler" %>
           <%= link_to unauthorized_method.root_path do %>
             <div class="card--list__item">
               <div class="card--list__text">

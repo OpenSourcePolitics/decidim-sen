@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
-  let(:organization) { user.organization }
+  let!(:organization) { create(:organization) }
 
   before do
     switch_to_host(organization.host)
@@ -27,6 +27,26 @@ describe "Account", type: :system do
   context "when on the account page" do
     before do
       visit decidim.account_path
+    end
+
+    it "displays authorizations link" do
+      expect(page).to have_content("Authorizations")
+    end
+
+    context "when accessing authorizations" do
+      let!(:organization) do
+        create(:organization, available_authorizations: authorizations)
+      end
+
+      let(:authorizations) { ["france_connect_uid","france_connect_profile", "osp_authorization_handler"] }
+
+      it "displays FC authorizations" do
+        click_link "Authorizations"
+        expect(page).to have_content("France Connect Level I")
+        expect(page).to have_content("France Connect Level II")
+        expect(page).to have_no_content("OSP Authorization handler")
+        expect(page).to have_css("h5.card--list__heading", count: 2)
+      end
     end
 
     describe "updating personal data" do
