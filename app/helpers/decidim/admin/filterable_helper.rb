@@ -13,6 +13,8 @@ module Decidim
       def submenu_options_tree
         filters_with_values.each_with_object({}) do |(filter, values), hash|
           next if filter == :type_id_eq
+          next if filter == :decidim_area_id_eq
+          next if filter == :decidim_initiatives_archive_categories_id_eq
 
           values = reorder_states(values) if filter == :state_eq
 

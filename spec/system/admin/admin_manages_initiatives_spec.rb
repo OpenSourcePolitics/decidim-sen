@@ -104,19 +104,17 @@ describe "Admin manages initiatives", type: :system do
       end
     end
 
-    Decidim::Area.all.each do |area|
-      i18n_area = area.name[I18n.locale.to_s]
+    it "doesn't allow to filter by area" do
+      within(".filters__section") do
+        find_link("Filter").hover
+        expect(page).to have_no_content("Area")
+      end
+    end
 
-      context "filtering collection by area: #{i18n_area}" do
-        before do
-          create(:initiative, organization: organization, area: area1)
-          create(:initiative, organization: organization, area: area2)
-        end
-
-        it_behaves_like "a filtered collection", options: "Area", filter: i18n_area do
-          let(:in_filter) { translated(initiative_with_area(area).title) }
-          let(:not_in_filter) { translated(initiative_without_area(area).title) }
-        end
+    it "doesn't allow to filter by archive category" do
+      within(".filters__section") do
+        find_link("Filter").hover
+        expect(page).to have_no_content("Archive category")
       end
     end
 
