@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin manages initiatives", type: :system do
   STATES = Decidim::Initiative.states.keys.map(&:to_sym)
+                              .reject { |state| state =~ /classified|examinated|debatted/i }
 
   def create_initiative_with_trait(trait)
     create(:initiative, trait, organization: organization)
