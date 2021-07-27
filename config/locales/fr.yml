@@ -253,8 +253,6 @@ fr:
         create:
           success_html: Success html
       initiatives:
-        share_buttons:
-          share_link: Partager le lien
         filters:
           any: Any
           area: Area
@@ -268,6 +266,8 @@ fr:
           type: Type
         index_header:
           new_initiative: New initiative
+        share_buttons:
+          share_link: Partager le lien
       initiatives_mailer:
         creation_subject: Creation subject
         initiative_link:

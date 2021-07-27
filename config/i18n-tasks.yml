@@ -83,6 +83,7 @@ translation:
 # Do not consider these keys missing:
 ignore_missing:
   - faker.address.country_code
+  - decidim.initiatives.initiatives.show.*
 
 # Consider these keys used:
 ignore_unused:
@@ -115,4 +116,5 @@ ignore_unused:
   - decidim.authorization_handlers.admin.decidim.help
   - activemodel.attributes.attachment.*
   - decidim.authorization_handlers.admin.france_connect.*
+  - decidim.initiatives.initiatives.share_buttons.share_link
 
