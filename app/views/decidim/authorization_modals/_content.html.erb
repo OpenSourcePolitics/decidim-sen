@@ -10,11 +10,11 @@
     </div>
   </div>
 <% else %>
-  <% base_code = authorizations.global_code || :missing %>
+  <% base_code = authorizations&.global_code || :missing %>
   <div class="<%= base_code %>-authorization">
     <h2 class="section-heading"><%= t ".#{base_code}.title" %></h2>
   </div>
-  <% authorizations.statuses.each do |status| %>
+  <% authorizations&.statuses&.each do |status| %>
     <% next if status.ok? || (authorizations.global_code && status.code != base_code) || authorization_anti_affinity.include?(status.handler_name) %>
     <p><%= t ".#{status.code}.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
     <% if status.data[:extra_explanation] %>
