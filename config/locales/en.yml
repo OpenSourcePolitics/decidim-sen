@@ -224,13 +224,13 @@ en:
         fill_data:
           back: Back
           continue: Continue
-          fill_data_help: Fill data help
+          fill_data_help: Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?
           initiative_type: Initiative type
           select_scope: Select scope
         finish:
           back: Back
           back_to_initiatives: Back to initiatives
-          callout_text: Callout text
+          callout_text: Congratulations! Your initiative has been successfully created."
           confirm: Confirm
           edit_my_initiative: Edit my initiative
           go_to_my_initiatives: Go to my initiatives
@@ -238,10 +238,10 @@ en:
         previous_form:
           back: Back
           continue: Continue
-          help: Help
+          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
         promotal_committee:
           back: Back
-          individual_help_text: Individual help text
+          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least 2 people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
       form:
         add_attachments: Ajouter un document
         attachment_legend: Document
