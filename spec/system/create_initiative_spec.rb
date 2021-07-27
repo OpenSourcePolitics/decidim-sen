@@ -51,6 +51,7 @@ describe "Initiative", type: :system do
       visit decidim_initiatives.create_initiative_path(id: :select_initiative_type)
     end
 
+    # rubocop:disable Capybara/VisibilityMatcher
     context "without validations" do
       before do
         switch_to_host(organization.host)
@@ -58,6 +59,7 @@ describe "Initiative", type: :system do
         login_as authorized_user, scope: :user
         visit decidim_initiatives.create_initiative_path(id: :select_initiative_type)
       end
+
       context "and select initiative type" do
         it "Offers contextual help" do
           within ".callout.secondary" do
@@ -185,6 +187,7 @@ describe "Initiative", type: :system do
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
             expect(find(:xpath, "//textarea[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
           end
+          # rubocop:enable Capybara/VisibilityMatcher
 
           context "when only one signature collection and scope are available" do
             let(:other_initiative_type_scope) { nil }
@@ -394,7 +397,6 @@ describe "Initiative", type: :system do
           it_behaves_like "initiatives path redirection"
         end
       end
-
     end
 
     context "when user is not defined and creates new initiative" do
