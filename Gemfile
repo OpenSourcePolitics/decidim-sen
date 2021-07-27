@@ -5,24 +5,9 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "alt/petition_merge"
-# gem "decidim-consultations", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "alt/petition_merge"
 gem "decidim-initiatives", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "alt/petition_merge"
 
-# gem "decidim", path: "../../decidim-petition"
-# gem "decidim-consultations", path: "../../decidim-petition"
-# gem "decidim-initiatives", path: "../../decidim-petition"
-
 gem "decidim-term_customizer", git: "https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git", branch: "0.dev"
-
-# gem "omniauth-decidim", git: "https://github.com/OpenSourcePolitics/decidim.git"
-# gem "decidim-omniauth_extras", git: "https://github.com/OpenSourcePolitics/decidim.git"
-# gem "decidim-initiatives_extras", git: "https://github.com/OpenSourcePolitics/decidim.git"
-
-# gem "omniauth-decidim", path: "../omniauth-decidim"
-# gem "decidim-omniauth_extras", path: "../decidim-module-omniauth_extras"
-# gem "decidim-initiatives_extras", path: "../decidim-module-initiatives_extras"
-
-# gem "decidim-blazer", path: "../decidim-module-blazer"
 
 gem "bootsnap"
 gem "puma", ">= 4.3"
@@ -49,7 +34,6 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "alt/petition_merge"
-  # gem "decidim-dev", path: "../../decidim-petition"
 end
 
 group :development do
