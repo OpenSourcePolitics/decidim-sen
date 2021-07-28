@@ -1,0 +1,18 @@
+---
+en:
+  decidim:
+    admin:
+      filters:
+        decidim_area_id_eq:
+          label: Area
+        state_eq:
+          values:
+            accepted: Accepted
+            classified: Classified
+            created: Created
+            debatted: Debatted
+            discarded: Discarded
+            examinated: Examinated
+            published: Published
+            rejected: Rejected
+            validating: Validating

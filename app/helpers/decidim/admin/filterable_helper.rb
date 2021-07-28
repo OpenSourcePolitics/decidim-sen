@@ -13,6 +13,8 @@ module Decidim
       def submenu_options_tree
         filters_with_values.each_with_object({}) do |(filter, values), hash|
           next if filter == :type_id_eq
+          next if filter == :decidim_area_id_eq
+          next if filter == :decidim_initiatives_archive_categories_id_eq
 
           values = reorder_states(values) if filter == :state_eq
 
@@ -30,8 +32,9 @@ module Decidim
         links = []
         links += extra_dropdown_submenu_options_items(filter)
         links += values.map do |value|
-          next if value == "rejected"
-          next if value == "accepted"
+          next if value == "classified"
+          next if value == "examinated"
+          next if value == "debatted"
 
           filter_link_value(filter, value)
         end
@@ -135,9 +138,8 @@ module Decidim
         ordered_states << "validating" if states.member?("validating")
         ordered_states << "discarded" if states.member?("discarded")
         ordered_states << "published" if states.member?("published")
-        ordered_states << "classified" if states.member?("classified")
-        ordered_states << "examinated" if states.member?("examinated")
-        ordered_states << "debatted" if states.member?("debatted")
+        ordered_states << "accepted" if states.member?("accepted")
+        ordered_states << "rejected" if states.member?("rejected")
 
         ordered_states
       end

@@ -120,6 +120,9 @@ fr:
       granted_at: Granted at
       omniauth_anti_affinity:
         explanation: Explanation
+      osp_authorization_handler:
+        explanation: OSP authorization
+        name: OSP Authorization handler
       saml:
         explanation: Confirmer votre identité avec un compte CSAM eID
         name: CSAM eID
@@ -409,6 +412,8 @@ fr:
         navigation: Navigation
         sign_in: Sign in
         sign_up: Sign up
+      initiative_header_steps:
+        description: Description
       initiative_signature_creation_header:
         finished: Finished
       mailer:

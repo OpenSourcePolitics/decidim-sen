@@ -84,6 +84,10 @@ translation:
 ignore_missing:
   - faker.address.country_code
   - decidim.initiatives.initiatives.show.*
+  - decidim.admin.actions.configure
+  - decidim.admin.models.initiatives.fields.*
+  - decidim.initiatives.admin.initiatives.index.*
+  - decidim.initiatives.actions.answer
 
 # Consider these keys used:
 ignore_unused:

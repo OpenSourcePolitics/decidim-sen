@@ -32,9 +32,9 @@ en:
         alert: Alert
         confirm:
           close: Close
-          ok: Ok
+          ok: Yes, I want to delete my account
           question: Question
-          title: Title
+          title: Delete my account
         explanation: Explanation
       show:
         change_address: Modifier mon adresse
@@ -120,6 +120,9 @@ en:
       granted_at: Granted at
       omniauth_anti_affinity:
         explanation: Explanation
+      osp_authorization_handler:
+        explanation: OSP authorization
+        name: OSP Authorization handler
       saml:
         explanation: Validate with your CSAM eID account
         name: CSAM eID
@@ -398,6 +401,8 @@ en:
         navigation: Navigation
         sign_in: Sign in
         sign_up: Sign up
+      initiative_header_steps:
+        description: Description
       initiative_signature_creation_header:
         finished: Finished
       mailer:
@@ -407,9 +412,9 @@ en:
         profile: Profile
         sign_out: Sign out
       user_profile:
-        authorizations: Voir les autorisations associées à votre compte
+        authorizations: Authorizations
         back_to_account: Retour à votre compte
         my_data: My data
-        title: Title
+        title: My account
   locale:
     name: Name
