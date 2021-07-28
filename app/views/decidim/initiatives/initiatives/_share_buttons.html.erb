@@ -1,0 +1,9 @@
+<div class="share-buttons button-group text-center">
+  <%= social_share_button_tag(decidim_page_title,
+                              url: decidim_meta_url,
+                              image: decidim_meta_image_url,
+                              desc: h(decidim_meta_description),
+                              via: decidim_meta_twitter_handler) %>
+</div>
+<%= javascript_include_tag "decidim/social_share" %>
+<%= stylesheet_link_tag "decidim/extras/_social_share" %>

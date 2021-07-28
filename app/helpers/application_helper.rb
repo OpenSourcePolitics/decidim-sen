@@ -5,13 +5,23 @@ module ApplicationHelper
     return true if request.env["PATH_INFO"].end_with?("/users/sign_in")
     return true if request.env["PATH_INFO"].end_with?("/committee_requests/new")
 
-    (available_authorizations? && request.env.dig(:available_authorizations).include?(provider_name.to_s))
+    (available_authorizations? && available_authorizations_for(provider_name.to_s))
   end
 
   private
 
   def available_authorizations?
-    request.env.dig(:available_authorizations).present?
+    request.env.dig(:available_authorizations).present? || current_organization.available_authorizations.present?
+  end
+
+  def available_authorizations
+    return current_organization.available_authorizations if request.env.dig(:available_authorizations).blank?
+
+    request.env.dig(:available_authorizations)
+  end
+
+  def available_authorizations_for(provider_name)
+    available_authorizations.include?(provider_name.to_s)
   end
 
   def omniauth_buttons_cache_version
