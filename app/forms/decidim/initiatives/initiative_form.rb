@@ -103,12 +103,14 @@ module Decidim
       def check_type_documents
         return if add_documents.blank?
 
+        tmp_error = { file: false, size: false }
         add_documents.each do |document|
-          next if errors[:add_documents].present?
-
-          errors.add(:add_documents, :file) unless valid_content_type_for?(document)
+          tmp_error[:file] = true unless valid_content_type_for?(document)
+          tmp_error[:size] = true unless valid_size_for?(document)
         end
 
+        errors.add(:add_documents, :file) if tmp_error[:file]
+        errors.add(:add_documents, :size) if tmp_error[:size]
         errors.add(:add_documents, :needs_to_be_reattached) if errors[:add_documents].any?
       end
 
@@ -117,6 +119,14 @@ module Decidim
 
         return content_type_whitelist.include?(document.try(:content_type)) if document.respond_to?(:content_type)
         return content_type_whitelist.include?(document[:content_type]) if document.respond_to?(:[])
+
+        false
+      rescue StandardError
+        false
+      end
+
+      def valid_size_for?(document)
+        return document.size < Decidim.maximum_attachment_size if document.respond_to?(:size)
 
         false
       rescue StandardError

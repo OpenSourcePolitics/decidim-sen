@@ -28,6 +28,7 @@ en:
             add_documents:
               file: one or more files seems to not have the right format, format accepted are PDF
               needs_to_be_reattached: needs to be reattached
+              size: One or more files seems to exceed the maximal size allowed (10 Mo)
     models:
       decidim/attachment_created_event: Pièce jointe
   carrierwave:
