@@ -1,13 +1,6 @@
 ---
 en:
   activemodel:
-    errors:
-      models:
-        initiative:
-          attributes:
-            add_documents:
-              file: one or more files seems to not have the right format, format accepted are PDF
-              needs_to_be_reattached: needs to be reattached
     attributes:
       account:
         delete_reason: Delete reason
@@ -28,6 +21,13 @@ en:
         full_address: Votre adresse postale
         number_and_street: Numéro et libellé de la voie
         postal_code: Code postal
+    errors:
+      models:
+        initiative:
+          attributes:
+            add_documents:
+              file: one or more files seems to not have the right format, format accepted are PDF
+              needs_to_be_reattached: needs to be reattached
     models:
       decidim/attachment_created_event: Pièce jointe
   carrierwave:

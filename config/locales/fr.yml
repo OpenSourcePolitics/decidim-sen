@@ -1,13 +1,6 @@
 ---
 fr:
   activemodel:
-    errors:
-      models:
-        initiative:
-          attributes:
-            add_documents:
-              file: un ou plusieurs fichiers ne semblent pas avoir le bon format, les formats de documents acceptés sont PDF
-              needs_to_be_reattached: Attention ! veuillez téléverser à nouveau l'ensemble de vos fichiers PDF avant d'enregistrer votre pétition
     attributes:
       account:
         delete_reason: Delete reason
@@ -28,6 +21,13 @@ fr:
         full_address: Votre adresse postale
         number_and_street: Numéro et libellé de la voie
         postal_code: Code postal
+    errors:
+      models:
+        initiative:
+          attributes:
+            add_documents:
+              file: un ou plusieurs fichiers ne semblent pas avoir le bon format, les formats de documents acceptés sont PDF
+              needs_to_be_reattached: Attention ! veuillez téléverser à nouveau l'ensemble de vos fichiers PDF avant d'enregistrer votre pétition
     models:
       decidim/attachment_created_event: Pièce jointe
   carrierwave:
