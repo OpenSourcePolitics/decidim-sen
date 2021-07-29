@@ -126,7 +126,7 @@ module Decidim
       end
 
       def valid_size_for?(document)
-        return document.size < Decidim.maximum_attachment_size if document.respond_to?(:size)
+        return document.size <= Decidim.maximum_attachment_size if document.respond_to?(:size)
 
         false
       rescue StandardError
