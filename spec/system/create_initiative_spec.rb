@@ -332,6 +332,12 @@ describe "Initiative", type: :system do
             expect(page).to have_content("Finish")
           end
 
+          it "doesn't display back button" do
+            within ".columns.large-3" do
+              expect(page).to have_no_content("Back")
+            end
+          end
+
           it "Offers contextual help" do
             within ".callout.alert" do
               expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
