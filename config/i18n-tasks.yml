@@ -88,6 +88,7 @@ ignore_missing:
   - decidim.admin.models.initiatives.fields.*
   - decidim.initiatives.admin.initiatives.index.*
   - decidim.initiatives.actions.answer
+  - layouts.decidim.initiative_creation_header.*
 
 # Consider these keys used:
 ignore_unused:
@@ -121,4 +122,3 @@ ignore_unused:
   - activemodel.attributes.attachment.*
   - decidim.authorization_handlers.admin.france_connect.*
   - decidim.initiatives.initiatives.share_buttons.share_link
-
