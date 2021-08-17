@@ -12,13 +12,6 @@ fr:
         weight: Ordre de présentation
       component:
         weight: Rang d'affichage
-      initiative:
-        signature_type_values:
-          offline: En présentiel
-          online: En ligne
-        state: Recueil de signatures
-      initiatives_type:
-        area_enabled: Permettre aux administrateurs de choisir la commission associée à leurs pétitions
       static_page:
         weight: Rang d'affichage
       static_page_topic:
@@ -60,9 +53,6 @@ fr:
     admin:
       actions:
         cancel: Annuler
-        new: Nouvelle %{name}
-        publish: Publier
-        unpublish: Dépublier la pétition
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvelle pièce jointe.
@@ -80,26 +70,10 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette pièce jointe.
           success: Pièce jointe mise à jour avec succès.
-      export:
-        export_as: "%{name} en format %{export_format}"
-        notice: Vous allez recevoir un mail contenant le fichier d'export.
-      filters:
-        state_eq:
-          values:
-            accepted: Seuil atteint
-            archived: Archivées
-            created: Rédigée
-            discarded: Retirée
-            evaluating: Évaluation
-            published: Recueil de signatures en cours
-            rejected: Seuil non atteint
-            validating: Validation technique
-            withdrawn: Retirée
       menu:
-        initiatives: Pétitions
-        initiatives_types: Types de pétitions
         participatory_processes_submenu:
           attachments: Pièce(s) jointe(s)
+          moderations: Modérations
       models:
         attachment:
           fields:
@@ -215,178 +189,14 @@ fr:
     errors:
       not_found:
         back_home: Back home
-    event:
-      initiatives:
-        admin:
-          support_threshold_reached:
-            email_intro: decidim.event.initiatives.admin.support_threshold_reached.email_intro
-            email_outro: decidim.event.initiatives.admin.support_threshold_reached.email_outro
-            email_subject: decidim.event.initiatives.admin.support_threshold_reached.email_subject
-            notification_title: decidim.event.initiatives.admin.support_threshold_reached.notification_title
-    events:
-      initiatives:
-        milestone_completed:
-          affected_user:
-            email_intro: Votre pétition %{resource_title} a atteint %{percentage}% du seuil de signatures !
-            notification_title: Votre pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% du seuil de signatures !
-          follower:
-            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     initiatives:
-      admin:
-        answers:
-          info_initiative:
-            created_at: Created at
-            description: Description
-            initiative_votes_count: Initiative votes count
-            initiatives: Initiatives
-            state: Recueil de signatures
-        initiatives:
-          edit:
-            accept: Accept
-            confirm: Confirm
-            discard: Discard
-            export_pdf_signatures: Export pdf signatures
-            export_votes: Export votes
-            reject: Reject
-            send_to_technical_validation: Envoyer à la validation technique
-            update: Sauvegarder mes modifications
-          form:
-            title: Title
-          index:
-            filter:
-              accepted: Seuil atteint
-              created: Rédigée
-              published: Recueil de signatures en cours
-              rejected: Seuil non atteint
-      admin_states:
-        accepted: Seuil atteint
-        created: Rédigée
-        discarded: Retirée
-        published: Recueil de signatures en cours
-        rejected: Seuil non atteint
-        validating: Validation technique
-      application_helper:
-        filter_area_values:
-          all: All
-        filter_scope_values:
-          all: All
-        filter_state_values:
-          accepted: Seuil atteint
-          all: Tous
-          classified: Classified
-          closed: Fermé
-          debatted: Debatted
-          examinated: Examinated
-          open: Ouvert
-          published: Recueil de signatures en cours
-          rejected: Seuil non atteint
-        filter_type_values:
-          all: Tous
-      content_blocks:
-        highlighted_initiatives:
-          name: Les pétitions en cours
-      create_initiative:
-        fill_data:
-          back: Retour
-          continue: Enregistrer
-          fill_data_help: 'Votre titre est-il clair ? <br /> La description correspond-elle bien à l’objet de votre pétition ?<br /><br /> Pour une pétition de type <b>mission de contrôle </b>: sur quel sujet doit porter le contrôle ?<br /><br /> Pour une pétition de type <b>texte législatif </b>: que voulez-vos modifier dans le droit en vigueur et pour quels motifs ?<br /><br /> Enregistrez votre projet de pétition pour passer à l’étape suivante.'
-          initiative_type: Type de pétition
-          select_scope: Sélectionner un secteur
-        finish:
-          back: Retour
-          back_to_initiatives: Retourner à la liste des pétitions
-          callout_text: "Bravo, votre pétition est rédigée et enregistrée dans votre tableau de bord. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat (voir ci-dessous)"
-          confirm: Confirm
-          edit_my_initiative: Edit my initiative
-          go_to_my_initiatives: Consulter mes pétitions
-          send_my_initiative: Envoyer à la validation technique
-        finish_help:
-          access_reminder: Retrouvez et gérez vos pétitions dans l\'index des pétitions en cliquant sur le filtre Mes pétitions.
-          help_for_organizations: Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat.
-          help_in_person_signatures: "Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions »."
-          help_text: Votre pétition est rédigée et enregistrée dans votre tableau de bord.
-          initiatives_page_link: Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures.
-          publish_helper_text: "<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l'ouvrir au recueil de signatures. </p>"
-        previous_form:
-          back: Retour
-          continue: Continue
-          help: Vous devez rédiger votre pétition, en français, en des termes clairs et compréhensibles. Le titre est limité à 150 signes ; la description est limitée à 10 000 signes.
-        promotal_committee:
-          back: Retour
-          individual_help_text: Individual help text
-        select_initiative_type:
-          choose_html: Je veux déposer une pétition de type <strong>%{title}</strong>
-          select: Je veux déposer une pétition
-          select_initiative_type_help: Sélectionner le type de pétition que vous souhaitez déposer.
-        show_similar_initiatives:
-          compare_help: Si l'une des pétitions suivantes est similaire à la vôtre, nous vous encourageons à la signer plutôt que déposer un doublon. Votre proposition aura ainsi plus de chance d'atteindre le seuil requis.
-          continue: Ma pétition est différente
-      events:
-        create_initiative_event:
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été rédigée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         add_attachments: Ajouter un document
         attachment_legend: Document
         delete_attachment: Supprimer le document
-      initiative_signatures:
-        finish:
-          back_to_initiative: Back to initiative
-      initiative_votes:
-        create:
-          success_html: "La pétition <strong> %{title}</strong> a été signée avec succès !"
       initiatives:
-        author:
-          deleted: Auteur ayant supprimé son compte
-        filters:
-          any: Tous
-          area: Commission
-          author: Auteur
-          closed: Fermé
-          myself: Mes pétitions
-          open: Ouvert
-          scope: Secteur
-          search: Rechercher
-          select_an_area: Sélectionner une commission
-          sort: Sort
-          state: Statut de la pétition
-          type: Type
-        index_header:
-          new_initiative: Déposer une pétition
-        orders:
-          most_voted: nombre de signatures
-          random: ordre aléatoire
-          recent: date de rédaction
-          recently_published: date de publication
-          answer_date: date de réponse
-        result:
-          answer_title:
-            accepted: Cette pétition a atteint le seuil de signatures requis
-            created: Cette pétition a été rédigée
-            discarded: Cette pétition a été retirée parce que
-            published: Cette pétition est en cours de signature
-            rejected: Cette pétition n'a pas atteint le seuil de signatures requis
-            validating:  Cette pétition est en cours d'évaluation
-          initiative_rejected_reason: Cette pétition est caduque (elle n'a pas atteint le seuil de signatures requis au terme du délai ou le compte de son auteur a été supprimé).
         share_buttons:
           share_link: Partager le lien
-        vote_cabin:
-          already_voted: Signée ! (cliquer pour annuler)
-          verification_required: Signer
-          vote: Signer
-        votes_count:
-          most_popular_initiative: Seuil atteint
-      initiatives_mailer:
-        creation_subject: Votre pétition '%{title}' a été rédigée
-        initiative_link:
-          check_initiative_details: Vous pouvez y accéder
-          here: en suivant ce lien.
-        more_information: "Vous pouvez la modifier et éventuellement ajouter des pièces jointes. Pour cela, accéder au menu \"Tableau de bord\" de votre compte auteur, cliquer sur \"pétitions\" dans le menu à gauche et cliquer sur votre pétition. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat en cliquant sur le bouton « Envoyer à la validation technique » Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures."
-        progress_report_body_for: La pétition %{title} a atteint %{percentage}% des signatures requises.
-        progress_report_for: "Résumé de la pétition : %{title}"
-        status_change_body_for: "L'état de la pétition %{title} a été changé pour : %{state}"
-        status_change_for: La pétition %{title} a changé d'état
-        technical_validation_body_for: "Une nouvelle pétition a été envoyée à la validation technique : %{title}."
-        technical_validation_for: Une validation technique a été demandée pour la pétition "%{title}".
       state:
         accepted: Seuil atteint
         created: Rédigée
