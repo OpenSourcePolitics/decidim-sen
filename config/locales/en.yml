@@ -1,19 +1,28 @@
 ---
-en:
+fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Delete reason
+        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       attachment:
         attachment_collection_id: Dossier
-        description: Description
+        description: Description*
         file: Fichier (*.pdf)
         title: Titre
         weight: Ordre de présentation
+      component:
+        weight: Rang d'affichage
       initiative:
         signature_type_values:
-          offline: Offline
-          online: Online
+          offline: En présentiel
+          online: En ligne
+        state: Recueil de signatures
+      initiatives_type:
+        area_enabled: Permettre aux administrateurs de choisir la commission associée à leurs pétitions
+      static_page:
+        weight: Rang d'affichage
+      static_page_topic:
+        weight: Rang d'affichage
       user:
         address_complement: Complément d'adresse
         city: Commune
@@ -25,27 +34,35 @@ en:
       decidim/attachment_created_event: Pièce jointe
   carrierwave:
     errors:
-      image_too_big: Image too big
+      image_too_big: L'image est trop lourde
   decidim:
     account:
       delete:
-        alert: Alert
+        alert: Cette action ne peut pas être annulée. La suppression de votre compte entraînera la fermeture de toutes vos pétitions. Pour demander la suppression d'une pétition, merci de contacter support-petitions@senat.fr.
         confirm:
-          close: Close
-          ok: Yes, I want to delete my account
-          question: Question
-          title: Delete my account
-        explanation: Explanation
+          close: Fermer la fenêtre
+          ok: Oui, je souhaite supprimer mon compte
+          question: Êtes-vous sûr de vouloir supprimer votre compte ?
+          title: Supprimer mon compte
+        explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
+      destroy:
+        error: Une erreur s'est produite lors de la suppression de votre compte.
+        success: Votre compte a été supprimé avec succès.
       show:
         change_address: Modifier mon adresse
         custom_agreement: Je certifie être citoyen français ou résidant régulièrement en France, ainsi que l’exactitude des informations du profil
-        unconfirmed_email: l'adresse <code>%{email}</code> est en cours de validation.<br/> Un courriel vous a été transmis à cette adresse contenant un lien nous permettant de confirmer son existence.
-        update_account: Update account
+        unconfirmed_email: L'adresse <code>%{email}</code> est en cours de validation.<br/> Un courriel vous a été transmis à cette adresse contenant un lien nous permettant de confirmer son existence.
+        update_account: Mettre à jour votre compte
+      update:
+        error: Une erreur s'est produite lors de la mise à jour de votre compte.
+        success: Votre compte a été mis à jour avec succès.
+        success_with_email_confirmation: Un message vous est envoyé pour confirmer votre nouvelle adresse email.
     admin:
       actions:
-        cancel: Cancel
-        publish: Publish
-        unpublish: Unpublish
+        cancel: Annuler
+        new: Nouvelle %{name}
+        publish: Publier
+        unpublish: Dépublier la pétition
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvelle pièce jointe.
@@ -56,13 +73,28 @@ en:
           title: Modifier la pièce jointe
           update: Mettre à jour
         index:
-          attachments_title: Pièce(s) jointe(s) (2 maximum)
+          attachments_title: Pièces jointes
         new:
-          create: Envoyer
+          create: Ajouter une pièce jointe
           title: Nouvelle pièce jointe
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette pièce jointe.
           success: Pièce jointe mise à jour avec succès.
+      export:
+        export_as: %{name} en format %{export_format}
+        notice: Vous allez recevoir un mail contenant le fichier d'export.
+      filters:
+        state_eq:
+          values:
+            accepted: Seuil atteint
+            archived: Archivées
+            created: Rédigée
+            discarded: Retirée
+            evaluating: Évaluation
+            published: Recueil de signatures en cours
+            rejected: Seuil non atteint
+            validating: Validation technique
+            withdrawn: Retirée
       menu:
         initiatives: Initiatives
         initiatives_types: Initiatives types
@@ -86,51 +118,57 @@ en:
       titles:
         initiatives: Initiatives
     anonymous_user: Anonymous user
+    application:
+      documents:
+        related_documents: Pièces jointes
+      photos:
+        related_photos: Pièces jointes
     authorization_handlers:
       admin:
         decidim:
           help:
-          - Validate with an external Decidim account
+          - Confirmer une identité avec un compte Decidim externe
         france_connect:
           help:
-          - Validate with a France Connect account
+          - Confirmer une identité avec un compte FranceConnect
         france_connect_profile:
           help:
-          - Validate with a France Connect Level II account
+          - Confirmer une identité avec un compte FranceConnect Auteur
         france_connect_uid:
           help:
-          - Validate with a France Connect Level I account
+          - Confirmer une identité avec un compte FranceConnect Signataire
         saml:
           help:
-          - Validate with a CSAM eID account
+          - Confirmer une identité avec un compte CSAM eID
       decidim:
-        explanation: Validate with your external Decidim account
+        explanation: Confirmer votre identité avec un compte Decidim externe
         name: Omniauth Decidim
       expired_at: Expired at
       expires_at: Expires at
       france_connect:
-        explanation: Validate with your France Connect account
+        explanation: Confirmer votre identité avec un compte FranceConnect
         name: France Connect
       france_connect_profile:
-        explanation: Validate with your France Connect account
-        name: France Connect Level II
+        explanation: Confirmer votre identité avec un compte FranceConnect Auteur
+        name: Identification FranceConnect comme Auteur
       france_connect_uid:
-        explanation: Validate with your France Connect account
-        name: France Connect Level I
-      granted_at: Granted at
+        explanation: Confirmer votre identité avec un compte FranceConnect Signataire
+        name: Identification FranceConnect comme Signataire
+      granted_at: Accordé le %{timestamp}
       omniauth_anti_affinity:
         explanation: Explanation
       osp_authorization_handler:
         explanation: OSP authorization
         name: OSP Authorization handler
       saml:
-        explanation: Validate with your CSAM eID account
+        explanation: Confirmer votre identité avec un compte CSAM eID
         name: CSAM eID
       started_at: Started at
     authorization_modals:
       content:
         missing:
-          explanation: Explanation
+          explanation: Vous devez changer de compte pour signer et pour déposer une pétition. Pour signer, le dispositif permet au Sénat de s’assurer que vous êtes bien une personne physique et que vous ne signez qu’une fois, tout en préservant votre anonymat. Pour déposer une pétition, le dispositif permet au Sénat de ne récupérer que les informations nécessaires sur les auteurs de pétitions. Le dépôt de pétition est réservé aux personnes majeures.
+          title: Identification par FranceConnect
         unconfirmed:
           confirmation_instructions: Confirmation instructions
           explanation_html: Explanation html
@@ -161,9 +199,9 @@ en:
           newsletter_title: Newsletter title
           nickname_help: Nickname help
           password_help: Password help
-          sign_in: Sign in
+          sign_in: S'identifier
           sign_up: Sign up
-          subtitle: Subtitle
+          subtitle: Identifiez-vous pour signer ou déposer une pétition.
           terms: Terms
           tos_agreement: Tos agreement
           tos_title: Tos title
@@ -173,7 +211,7 @@ en:
           are_you_new?: Are you new?
           register: Register
           sign_in_disabled: Sign in disabled
-          sign_up_disabled: Sign up disabled
+          sign_up_disabled: Pour vous connecter cliquez sur l'un des boutons ci-dessous en fonction de l'action que vous souhaitez réaliser.
     errors:
       not_found:
         back_home: Back home
@@ -185,6 +223,14 @@ en:
             email_outro: decidim.event.initiatives.admin.support_threshold_reached.email_outro
             email_subject: decidim.event.initiatives.admin.support_threshold_reached.email_subject
             notification_title: decidim.event.initiatives.admin.support_threshold_reached.notification_title
+    events:
+      initiatives:
+        milestone_completed:
+          affected_user:
+            email_intro: Votre pétition %{resource_title} a atteint %{percentage}% du seuil de signatures !
+            notification_title: Votre pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% du seuil de signatures !
+          follower:
+            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     initiatives:
       admin:
         answers:
@@ -193,7 +239,7 @@ en:
             description: Description
             initiative_votes_count: Initiative votes count
             initiatives: Initiatives
-            state: State
+            state: Recueil de signatures
         initiatives:
           edit:
             accept: Accept
@@ -202,49 +248,82 @@ en:
             export_pdf_signatures: Export pdf signatures
             export_votes: Export votes
             reject: Reject
-            send_to_technical_validation: Send to technical validation
-            update: Update
+            send_to_technical_validation: Envoyer à la validation technique
+            update: Sauvegarder mes modifications
           form:
             title: Title
+          index:
+            filter:
+              accepted: Seuil atteint
+              created: Rédigée
+              published: Recueil de signatures en cours
+              rejected: Seuil non atteint
+      admin_states:
+        accepted: Seuil atteint
+        created: Rédigée
+        discarded: Retirée
+        published: Recueil de signatures en cours
+        rejected: Seuil non atteint
+        validating: Validation technique
       application_helper:
         filter_area_values:
           all: All
         filter_scope_values:
           all: All
         filter_state_values:
-          accepted: Accepted
-          all: All
+          accepted: Seuil atteint
+          all: Tous
           classified: Classified
-          closed: Closed
+          closed: Fermé
           debatted: Debatted
           examinated: Examinated
-          open: Open
-          published: Published
-          rejected: Rejected
+          open: Ouvert
+          published: Recueil de signatures en cours
+          rejected: Seuil non atteint
         filter_type_values:
-          all: All
+          all: Tous
+      content_blocks:
+        highlighted_initiatives:
+          name: Les pétitions en cours
       create_initiative:
         fill_data:
-          back: Back
-          continue: Continue
-          fill_data_help: Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?
-          initiative_type: Initiative type
-          select_scope: Select scope
+          back: Retour
+          continue: Enregistrer
+          fill_data_help: 'Votre titre est-il clair ? <br /> La description correspond-elle bien à l’objet de votre pétition ?<br /><br /> Pour une pétition de type <b>mission de contrôle </b>: sur quel sujet doit porter le contrôle ?<br /><br /> Pour une pétition de type <b>texte législatif </b>: que voulez-vos modifier dans le droit en vigueur et pour quels motifs ?<br /><br /> Enregistrez votre projet de pétition pour passer à l’étape suivante.'
+          initiative_type: Type de pétition
+          select_scope: Sélectionner un secteur
         finish:
-          back: Back
-          back_to_initiatives: Back to initiatives
-          callout_text: Congratulations! Your initiative has been successfully created."
+          back: Retour
+          back_to_initiatives: Retourner à la liste des pétitions
+          callout_text: Bravo, votre pétition est rédigée et enregistrée dans votre tableau de bord. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat (voir ci-dessous)
           confirm: Confirm
           edit_my_initiative: Edit my initiative
-          go_to_my_initiatives: Go to my initiatives
-          send_my_initiative: Send my initiative
+          go_to_my_initiatives: Consulter mes pétitions
+          send_my_initiative: Envoyer à la validation technique
+        finish_help:
+          access_reminder: Retrouvez et gérez vos pétitions dans votre compte via le menu « Tableau de bord ».
+          help_for_organizations: Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat.
+          help_in_person_signatures: Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».
+          help_text: Votre pétition est rédigée et enregistrée dans votre tableau de bord.
+          initiatives_page_link: Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures.
+          publish_helper_text: '<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures. </p>'
         previous_form:
-          back: Back
+          back: Retour
           continue: Continue
-          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
+          help: Vous devez rédiger votre pétition, en français, en des termes clairs et compréhensibles. Le titre est limité à 150 signes ; la description est limitée à 10 000 signes.
         promotal_committee:
-          back: Back
-          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least 2 people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          back: Retour
+          individual_help_text: Individual help text
+        select_initiative_type:
+          choose_html: Je veux déposer une pétition de type <strong>%{title}</strong>
+          select: Je veux déposer une pétition
+          select_initiative_type_help: Sélectionner le type de pétition que vous souhaitez déposer.
+        show_similar_initiatives:
+          compare_help: Si l'une des pétitions suivantes est similaire à la vôtre, nous vous encourageons à la signer plutôt que déposer un doublon. Votre proposition aura ainsi plus de chance d'atteindre le seuil requis.
+          continue: Ma pétition est différente
+      events:
+        create_initiative_event:
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été rédigée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         add_attachments: Ajouter un document
         attachment_legend: Document
@@ -254,32 +333,72 @@ en:
           back_to_initiative: Back to initiative
       initiative_votes:
         create:
-          success_html: Success html
+          success_html: "La pétition <strong> %{title}</strong> a été signée avec succès !"
       initiatives:
+        author:
+          deleted: Auteur ayant supprimé son compte
         filters:
-          any: Any
-          area: Area
-          author: Author
-          myself: Myself
-          scope: Scope
-          search: Search
-          select_an_area: Select an area
+          any: Tous
+          area: Commission
+          author: Auteur
+          closed: Fermé
+          myself: Mes pétitions
+          open: Ouvert
+          scope: Secteur
+          search: Rechercher
+          select_an_area: Sélectionner une commission
           sort: Sort
-          state: State
+          state: Statut de la pétition
           type: Type
         index_header:
-          new_initiative: New initiative
+          new_initiative: Déposer une pétition
+        orders:
+          most_voted: nombre de signatures
+          random: ordre aléatoire
+          recent: date de rédaction
+          recently_published: date de publication
+          answer_date: date de réponse
+        result:
+          answer_title:
+            accepted: Cette pétition a atteint le seuil de signatures requis
+            created: Cette pétition a été rédigée
+            discarded: Cette pétition a été retirée parce que
+            published: Cette pétition est en cours de signature
+            rejected: Cette pétition n'a pas atteint le seuil de signatures requis
+            validating:  Cette pétition est en cours d'évaluation
+          initiative_rejected_reason: Cette pétition est caduque (elle n'a pas atteint le seuil de signatures requis au terme du délai ou le compte de son auteur a été supprimé).
         share_buttons:
-          share_link: Share link
+          share_link: Partager le lien
+        vote_cabin:
+          already_voted: Signée ! (cliquer pour annuler)
+          verification_required: Signer
+          vote: Signer
+        votes_count:
+          most_popular_initiative: Seuil atteint
       initiatives_mailer:
-        creation_subject: Creation subject
+        creation_subject: Votre pétition '%{title}' a été rédigée
         initiative_link:
-          check_initiative_details: Check initiative details
-          here: Here
-        more_information: More information
+          check_initiative_details: Vous pouvez y accéder
+          here: en suivant ce lien.
+        more_information: Vous pouvez la modifier et éventuellement ajouter des pièces jointes. Pour cela, accéder au menu "Tableau de bord" de votre compte auteur, cliquer sur "pétitions" dans le menu à gauche et cliquer sur votre pétition. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat en cliquant sur le bouton « Envoyer à la validation technique » Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures.
+        progress_report_body_for: La pétition %{title} a atteint %{percentage}% des signatures requises.
+        progress_report_for: Résumé de la pétition : %{title}
+        status_change_body_for: L'état de la pétition %{title} a été changé pour : %{state}
+        status_change_for: La pétition %{title} a changé d'état
+        technical_validation_body_for: Une nouvelle pétition a été envoyée à la validation technique : %{title}.
+        technical_validation_for: Une validation technique a été demandée pour la pétition "%{title}".
+      state:
+        accepted: Seuil atteint
+        created: Rédigée
+        published: En cours
+        rejected: Seuil non atteint
+        accepted: Seuil atteint
+        expired: Seuil non atteint
       update:
         error: fr.decidim.initiatives.update.error
         success: fr.decidim.initiatives.update.success
+    menu:
+      initiatives: Liste des pétitions
     notifications_settings:
       show:
         email_on_notification: Email on notification
@@ -289,32 +408,51 @@ en:
           link: https://franceconnect.gouv.fr/
           text: Qu'est-ce-que FranceConnect ?
       france_connect_profile:
-        explanation: '<b>L''auteur d''une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l''authentification FranceConnect "Auteur", que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont en aucun cas rendus publics. </p>'
+        explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L'auteur d'une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l'authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
       france_connect_uid:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
-        explanation: <b>La connexion via FranceConnect en tant que "Signataire" permet de garantir votre anonymat</b>,<br/> tout en assurant qu'une pétition n'est signée une seule fois par une même personne physique.<br/> <b>Aucune donnée personnelle n'est récupérée lors de la connexion avec FranceConnect</b>
+        explanation: '<b><FONT size="5pt"> Pour signer une pétition </FONT></b> <br /> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique.'
     pages:
+      home:
+        highlighted_initiatives:
+          active_initiatives: Les pétitions en cours
+      index:
+        title: Pages d'aide
       terms_and_conditions:
+        accept:
+          success: Vous avez accepté les conditions générales d'utilisation de la plateforme.
+        form:
+          agreement: Je suis d'accord avec les conditions générales d'utilisation
+          legend: Accepter les conditions générales d'utilisation
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme.
-          modal_btn_continue: Accepter les conditions <br/> et continuer
-          modal_btn_exit: Refuser les conditions <br/> et se déconnecter
-          modal_button: Refuser les conditions d'utilisation
+          modal_body: Si vous refusez, vous ne pourrez pas déposer de pétition. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les conditions générales d'utilisation et continuer
+          modal_btn_exit: Je les examinerai plus tard
+          modal_button: Refuser les conditions générales d'utilisation
           modal_close: Fermer la fenêtre
-          modal_title: Refusez-vous vraiment les conditions d'utilisation ?
+          modal_title: Refusez-vous vraiment les conditions générales d'utilisation mises à jour ?
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour lire nos conditions générales d'utilisation mises à jour et les accepter. <br />Si vous ne les acceptez pas, vous ne pourrez pas déposer de pétition.
+          title: Obligatoire : consultez les conditions générales d'utilisation mises à jour
     profile:
-      deleted: Compte utilisateur supprimé
+      deleted: Auteur ayant supprimé son compte
     progress_bar:
       show:
         number_delimiter: Number delimiter
     scopes:
       global: Global
     shared:
+      floating_help:
+        help: Aide
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
       version_author:
-        profile: Compte utilisateur supprimé
+        profile: Auteur ayant supprimé son compte
+    states:
+      accepted: Seuil atteint
+      expired:  Seuil non atteint
     system:
       organizations:
         omniauth_settings:
@@ -337,36 +475,50 @@ en:
     verifications:
       authorizations:
         index:
-          title: Liste des autorisations
+          title: Liste des identifications via FranceConnect
       metadata:
         content:
           active_email: '<b>Cet utilisateur peut être contacté aux coordonnées suivantes: <p><a href="mailto:%{email}">%{email}</a><br/>%{full_address}</p></b>'
           address_complement: 'Complément d''adresse : %{address_complement}'
-          title: Title
+          title: Données issues de France Connect
       omniauth:
         admin:
           authorizations:
             index:
               actions:
-                metadata: Metadata
+                metadata: Voir le profil
+        authorizations:
+          new:
+            error: Impossible de confirmer votre compte avec ce service externe.
+            success: Vous êtes bien identifié(e). Vous pouvez désormais signer ou déposer une pétition (selon votre profil d'identification).
         errors:
-          minimum_age: Minimum age
+          anti_affinity: 'Vous ne pouvez pas être connecté(e) avec ces 2 identités en même temps: %{anti_affinity}'
+          minimum_age: Vous devez avoir 18 ans au moins pour déposer une pétition.
   devise:
     confirmations:
       new:
         resend_confirmation_instructions: Resend confirmation instructions
+    failure:
+      already_authenticated: Vous êtes déjà identifié(e).
+      timeout: Votre session a expiré. Veuillez vous identifier à nouveau pour continuer.
+      unauthenticated: Vous devez vous authentifier via FranceConnect pour effectuer cette action.
     mailer:
       confirmation_instructions:
         action: Confirmer mon compte
         greeting: Bonjour %{recipient},
-        instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous:'
+        instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous :'
         subject: Instructions de confirmation
       email_changed:
         action: Confirmer ma nouvelle adresse
         greeting: Bonjour %{recipient},
         instruction: 'Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}. Vous pouvez la confirmer via le lien ci-dessous:'
         subject: Courriel modifié
+    omniauth_callbacks:
+      success: FranceConnect vous a bien authentifié(e) comme une personne unique.
     registrations:
+      destroyed: Au revoir ! Votre compte a été annulé avec succès. Nous espérons vous revoir bientôt.
+      logout:
+        success: Vous êtes de retour sur la plateforme e-pétitions du Sénat.
       new:
         sign_up: Sign up
     sessions:
@@ -375,11 +527,22 @@ en:
     shared:
       links:
         forgot_your_password: Forgot your password
-        sign_in_with_provider: Sign in with provider
-        signed_in_with_provider: Authentifié(e) avec %{provider} <br/>
+        sign_in_with_provider: S'identifier avec FranceConnect comme %{provider}
+        signed_in_with_provider: Identifié(e) avec %{provider} <br/>
   faker:
     address:
-      country_code: '["FR", "FR0", "FR1", "FR2", "FR3", "FR4", "FR5", "FR6", "FR7", "FR8", "FR9"]'
+      country_code:
+      - FR
+      - FR0
+      - FR1
+      - FR2
+      - FR3
+      - FR4
+      - FR5
+      - FR6
+      - FR7
+      - FR8
+      - FR9
   forms:
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   layouts:
@@ -393,14 +556,24 @@ en:
         link_label: Link label
         ok: Ok
       footer:
-        download_open_data: Open data
-        made_with_open_source: Made with open source
+        download_open_data: Données ouvertes
+        made_with_open_source: "Site réalisé par <a href="https://opensourcepolitics.eu" target="_blank">Open Source Politics</a> grâce au logiciel libre <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>."
         official_url: site du Sénat
       header:
-        close_menu: Close menu
+        close_menu: Fermer
         navigation: Navigation
-        sign_in: Sign in
+        sign_in: S'identifier
         sign_up: Sign up
+      initiatives:
+        initiative:
+          check: Voir
+          check_and_support: Voir
+      initiative_creation_header:
+        fill_data: 4. Relecture
+        finish: 5. Envoi au Sénat pour validation
+        previous_form: 2. Rédaction
+        select_initiative_type: 1. Sélection du type de pétition
+        show_similar_initiatives: 3. Comparaison
       initiative_header_steps:
         description: Description
       initiative_signature_creation_header:
@@ -408,13 +581,13 @@ en:
       mailer:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
-        admin_dashboard: Administration
-        profile: Profile
-        sign_out: Sign out
+        admin_dashboard: Tableau de bord
+        profile: Mon compte
+        sign_out: Déconnexion
       user_profile:
-        authorizations: Authorizations
+        authorizations: Identification
         back_to_account: Retour à votre compte
-        my_data: My data
-        title: My account
+        my_data: Mes données
+        title: Paramètres utilisateur
   locale:
-    name: Name
+    name: anglais
