@@ -81,7 +81,7 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette pièce jointe.
           success: Pièce jointe mise à jour avec succès.
       export:
-        export_as: %{name} en format %{export_format}
+        export_as: "%{name} en format %{export_format}"
         notice: Vous allez recevoir un mail contenant le fichier d'export.
       filters:
         state_eq:
@@ -96,8 +96,8 @@ fr:
             validating: Validation technique
             withdrawn: Retirée
       menu:
-        initiatives: Initiatives
-        initiatives_types: Initiatives types
+        initiatives: Pétitions
+        initiatives_types: Types de pétitions
         participatory_processes_submenu:
           attachments: Pièce(s) jointe(s)
       models:
@@ -295,18 +295,18 @@ fr:
         finish:
           back: Retour
           back_to_initiatives: Retourner à la liste des pétitions
-          callout_text: Bravo, votre pétition est rédigée et enregistrée dans votre tableau de bord. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat (voir ci-dessous)
+          callout_text: "Bravo, votre pétition est rédigée et enregistrée dans votre tableau de bord. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat (voir ci-dessous)"
           confirm: Confirm
           edit_my_initiative: Edit my initiative
           go_to_my_initiatives: Consulter mes pétitions
           send_my_initiative: Envoyer à la validation technique
         finish_help:
-          access_reminder: Retrouvez et gérez vos pétitions dans votre compte via le menu « Tableau de bord ».
+          access_reminder: Retrouvez et gérez vos pétitions dans l\'index des pétitions en cliquant sur le filtre Mes pétitions.
           help_for_organizations: Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat.
-          help_in_person_signatures: Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».
+          help_in_person_signatures: "Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions »."
           help_text: Votre pétition est rédigée et enregistrée dans votre tableau de bord.
           initiatives_page_link: Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures.
-          publish_helper_text: '<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures. </p>'
+          publish_helper_text: "<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l'ouvrir au recueil de signatures. </p>"
         previous_form:
           back: Retour
           continue: Continue
@@ -380,12 +380,12 @@ fr:
         initiative_link:
           check_initiative_details: Vous pouvez y accéder
           here: en suivant ce lien.
-        more_information: Vous pouvez la modifier et éventuellement ajouter des pièces jointes. Pour cela, accéder au menu "Tableau de bord" de votre compte auteur, cliquer sur "pétitions" dans le menu à gauche et cliquer sur votre pétition. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat en cliquant sur le bouton « Envoyer à la validation technique » Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures.
+        more_information: "Vous pouvez la modifier et éventuellement ajouter des pièces jointes. Pour cela, accéder au menu \"Tableau de bord\" de votre compte auteur, cliquer sur \"pétitions\" dans le menu à gauche et cliquer sur votre pétition. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat en cliquant sur le bouton « Envoyer à la validation technique » Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l’ouvrir au recueil de signatures."
         progress_report_body_for: La pétition %{title} a atteint %{percentage}% des signatures requises.
-        progress_report_for: Résumé de la pétition : %{title}
-        status_change_body_for: L'état de la pétition %{title} a été changé pour : %{state}
+        progress_report_for: "Résumé de la pétition : %{title}"
+        status_change_body_for: "L'état de la pétition %{title} a été changé pour : %{state}"
         status_change_for: La pétition %{title} a changé d'état
-        technical_validation_body_for: Une nouvelle pétition a été envoyée à la validation technique : %{title}.
+        technical_validation_body_for: "Une nouvelle pétition a été envoyée à la validation technique : %{title}."
         technical_validation_for: Une validation technique a été demandée pour la pétition "%{title}".
       state:
         accepted: Seuil atteint
@@ -408,10 +408,10 @@ fr:
           link: https://franceconnect.gouv.fr/
           text: Qu'est-ce-que FranceConnect ?
       france_connect_profile:
-        explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L'auteur d'une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l'authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
+        explanation: "<b><FONT size=\"5pt\"> Pour déposer une pétition </FONT></b> <br /> <b>L'auteur d'une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l'authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>"
       france_connect_uid:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
-        explanation: '<b><FONT size="5pt"> Pour signer une pétition </FONT></b> <br /> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique.'
+        explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
     pages:
       home:
         highlighted_initiatives:
@@ -434,7 +434,7 @@ fr:
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour lire nos conditions générales d'utilisation mises à jour et les accepter. <br />Si vous ne les acceptez pas, vous ne pourrez pas déposer de pétition.
-          title: Obligatoire : consultez les conditions générales d'utilisation mises à jour
+          title: "Obligatoire : consultez les conditions générales d'utilisation mises à jour"
     profile:
       deleted: Auteur ayant supprimé son compte
     progress_bar:
@@ -557,7 +557,7 @@ fr:
         ok: Ok
       footer:
         download_open_data: Données ouvertes
-        made_with_open_source: "Site réalisé par <a href="https://opensourcepolitics.eu" target="_blank">Open Source Politics</a> grâce au logiciel libre <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>."
+        made_with_open_source: "Site réalisé par <a href=\"https://opensourcepolitics.eu\" target=\"_blank\">Open Source Politics</a> grâce au logiciel libre <a target=\"_blank\" href=\"https://github.com/decidim/decidim\">logiciel libre Decidim</a>."
         official_url: site du Sénat
       header:
         close_menu: Fermer
@@ -590,4 +590,4 @@ fr:
         my_data: Mes données
         title: Paramètres utilisateur
   locale:
-    name: français
+    name: Français
