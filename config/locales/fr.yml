@@ -202,7 +202,7 @@ fr:
         success: La pétition a bien été mise à jour
     notifications_settings:
       show:
-        email_on_notification: Email on notification
+        email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification
     omniauth:
       france_connect:
         external:
@@ -347,9 +347,9 @@ fr:
     decidim:
       admin:
       cookie_warning:
-        description_html: Description html
-        link_label: Link label
-        ok: Ok
+        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
+        link_label: ici
+        ok: "J'accepte"
       footer:
         download_open_data: Données ouvertes
         made_with_open_source: Site réalisé par <a href="https://opensourcepolitics.eu" target="_blank">Open Source Politics</a> grâce au logiciel libre <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
