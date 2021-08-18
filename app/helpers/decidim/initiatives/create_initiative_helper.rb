@@ -16,6 +16,14 @@ module Decidim
         !promotal_committee_required? || unique_committee_member?
       end
 
+      def back_button_for?(step)
+        return false if defined?(step) && step == :finish
+
+        true
+      rescue StandardError
+        true
+      end
+
       private
 
       def online_signature_type_options
