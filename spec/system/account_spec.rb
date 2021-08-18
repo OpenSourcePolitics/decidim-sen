@@ -17,7 +17,7 @@ describe "Account", type: :system do
       visit decidim.root_path
 
       within_user_menu do
-        find("a", text: "PROFILE").click
+        find("a", text: "Mon compte").click
       end
 
       expect(page).to have_css("form.edit_user")
@@ -42,8 +42,8 @@ describe "Account", type: :system do
 
       it "displays FC authorizations" do
         click_link "Authorizations"
-        expect(page).to have_content("France Connect Level I")
-        expect(page).to have_content("France Connect Level II")
+        expect(page).to have_content("Identification FranceConnect comme Signataire")
+        expect(page).to have_content("FIdentification FranceConnect comme Auteur")
         expect(page).to have_no_content("OSP Authorization handler")
         expect(page).to have_css("h5.card--list__heading", count: 2)
       end
@@ -70,7 +70,7 @@ describe "Account", type: :system do
         user.reload
 
         within_user_menu do
-          find("a", text: "PROFILE").click
+          find("a", text: "Mon compte").click
         end
 
         expect(find("#user_email").value).to eq(user.email)
