@@ -122,3 +122,4 @@ ignore_unused:
   - activemodel.attributes.attachment.*
   - decidim.authorization_handlers.admin.france_connect.*
   - decidim.initiatives.initiatives.share_buttons.share_link
+  - activemodel.errors.models.initiative.attributes.add_documents.*

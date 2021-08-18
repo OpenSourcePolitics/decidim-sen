@@ -17,8 +17,8 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
+      attribute :documents, Array
+      attribute :add_documents, Array[String]
       attribute :photos, Array[String]
       attribute :hashtag, String
 
@@ -28,6 +28,7 @@ module Decidim
       validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
+      validate :check_type_documents
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
         form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
@@ -97,6 +98,39 @@ module Decidim
         return if attachment.blank?
 
         errors.add(:attachment, :needs_to_be_reattached) if errors.any?
+      end
+
+      def check_type_documents
+        return if add_documents.blank?
+
+        tmp_error = { file: false, size: false }
+        add_documents.each do |document|
+          tmp_error[:file] = true unless valid_content_type_for?(document)
+          tmp_error[:size] = true unless valid_size_for?(document)
+        end
+
+        errors.add(:add_documents, :file) if tmp_error[:file]
+        errors.add(:add_documents, :size) if tmp_error[:size]
+        errors.add(:add_documents, :needs_to_be_reattached) if errors[:add_documents].any?
+      end
+
+      def valid_content_type_for?(document)
+        content_type_whitelist = ["application/pdf"] # Copied from protected method in Decidim::AttachmentUploader
+
+        return content_type_whitelist.include?(document.try(:content_type)) if document.respond_to?(:content_type)
+        return content_type_whitelist.include?(document[:content_type]) if document.respond_to?(:[])
+
+        false
+      rescue StandardError
+        false
+      end
+
+      def valid_size_for?(document)
+        return document.size <= Decidim.maximum_attachment_size if document.respond_to?(:size)
+
+        false
+      rescue StandardError
+        false
       end
 
       def trigger_attachment_errors
