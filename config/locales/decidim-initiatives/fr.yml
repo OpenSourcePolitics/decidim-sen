@@ -407,7 +407,7 @@ fr:
           send_my_initiative: Envoyer à la validation technique
         finish_help:
           publish_helper_text: "<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l'ouvrir au recueil de signatures. </p>"
-          access_reminder: Retrouvez et gérez vos pétitions dans l\'index des pétitions en cliquant sur le filtre Mes pétitions.
+          access_reminder: Retrouvez et gérez vos pétitions dans l'index des pétitions en cliquant sur le filtre Mes pétitions.
           help_for_organizations: Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat.
           help_in_person_signatures: "Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions »."
           help_text: Votre pétition est rédigée et enregistrée dans votre tableau de bord.
@@ -606,7 +606,8 @@ fr:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Pétitions actives
+            active_initiatives: Les pétitions en cours
+            see_all_initiatives: Voir toutes les pétitions
           answered_initiatives:
             active_initiatives: Pétitions ayant reçu un sort
             see_all_initiatives: Voir toutes les pétitions
@@ -622,12 +623,13 @@ fr:
           rejected: Pas assez de signatures
           validating: Validation technique
       state:
-        accepted: Acceptée
-        created: Créée
+        accepted: Seuil atteint
+        created: Rédigée
         discarded: Retirée
-        published: Publiée
-        rejected: Rejetée
+        published: En cours
+        rejected: Seuil non atteint
         validating: Validation technique
+        expired: Seuil non atteint
       states:
         accepted: Acceptées
         classified: Classées
@@ -675,12 +677,12 @@ fr:
           information: Informations
       initiative_creation_header:
         back: Retour
-        fill_data: Complétez votre pétition
-        finish: Publiez votre pétition
-        previous_form: Créez votre pétition
+        fill_data: 4. Relecture
+        finish: 5. Envoi au Sénat pour validation
+        previous_form: 2. Rédaction
         promotal_committee: Comité de promotion
-        select_initiative_type: Sélectionnez le type de pétition
-        show_similar_initiatives: Comparez avec les autres pétitions
+        select_initiative_type: 1. Sélection du type de pétition
+        show_similar_initiatives: 3. Comparaison
         step: Étape %{current} de %{total}
         title: Créer une nouvelle pétition
       initiative_header:
@@ -700,7 +702,7 @@ fr:
         title: Signer %{initiative_title}
       initiatives:
         initiative:
-          check: Découvrez la pétition
-          check_and_support: Découvrez la pétition et signez-la
+          check: Voir
+          check_and_support: Voir
         no_initiatives_yet:
           no_initiatives_yet: Aucune pétition pour le moment !

@@ -182,7 +182,7 @@ fr:
           username_help: Username help
       sessions:
         new:
-          are_you_new?: Are you new?
+          are_you_new?: Pour vous connecter cliquez sur l'un des boutons ci-dessous en fonction de l'action que vous souhaitez réaliser.
           register: Register
           sign_in_disabled: Sign in disabled
           sign_up_disabled: Pour vous connecter cliquez sur l'un des boutons ci-dessous en fonction de l'action que vous souhaitez réaliser.
@@ -197,18 +197,9 @@ fr:
       initiatives:
         share_buttons:
           share_link: Partager le lien
-      state:
-        accepted: Seuil atteint
-        created: Rédigée
-        published: En cours
-        rejected: Seuil non atteint
-        accepted: Seuil atteint
-        expired: Seuil non atteint
       update:
-        error: fr.decidim.initiatives.update.error
-        success: fr.decidim.initiatives.update.success
-    menu:
-      initiatives: Liste des pétitions
+        error: Une erreur est survenue lors de la mise à jour de la pétition
+        success: La pétition a bien été mise à jour
     notifications_settings:
       show:
         email_on_notification: Email on notification
@@ -223,9 +214,6 @@ fr:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
         explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
     pages:
-      home:
-        highlighted_initiatives:
-          active_initiatives: Les pétitions en cours
       index:
         title: Pages d'aide
       terms_and_conditions:
@@ -330,10 +318,10 @@ fr:
       logout:
         success: Vous êtes de retour sur la plateforme e-pétitions du Sénat.
       new:
-        sign_up: Sign up
+        sign_up: Veuillez compléter votre profil
     sessions:
       new:
-        sign_in: Sign in
+        sign_in: S'identifier
     shared:
       links:
         forgot_your_password: Forgot your password
@@ -358,9 +346,6 @@ fr:
   layouts:
     decidim:
       admin:
-        initiative:
-          committee_members: Committee members
-          information: Information
       cookie_warning:
         description_html: Description html
         link_label: Link label
@@ -373,21 +358,7 @@ fr:
         close_menu: Fermer
         navigation: Navigation
         sign_in: S'identifier
-        sign_up: Sign up
-      initiatives:
-        initiative:
-          check: Voir
-          check_and_support: Voir
-      initiative_creation_header:
-        fill_data: 4. Relecture
-        finish: 5. Envoi au Sénat pour validation
-        previous_form: 2. Rédaction
-        select_initiative_type: 1. Sélection du type de pétition
-        show_similar_initiatives: 3. Comparaison
-      initiative_header_steps:
-        description: Description
-      initiative_signature_creation_header:
-        finished: Finished
+        sign_up: S'inscrire
       mailer:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
