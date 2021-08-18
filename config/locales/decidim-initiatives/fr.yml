@@ -67,9 +67,10 @@ fr:
         initiative:
           attributes:
             attachment:
-              file: La pièce-jointe n'est pas valide
-              needs_to_be_reattached: Réessayez d'ajouter la pièce-jointe
-              title: Le titre de la pièce-jointe devrait être rempli
+              file: Une ou plusieurs pièces-jointes ne semblent pas avoir le bon format, le format de documents accepté est .pdf.
+              needs_to_be_reattached: Attention ! Réessayez d'ajouter vos fichiers .pdf avant d'enregistrer votre pétition.
+              title: Le titre de la pièce-jointe doit être rempli.
+              size: Au moins une de vos pièces-jointes dépasse la poids maximal de 10 Mo.
   activerecord:
     models:
       decidim/initiative:

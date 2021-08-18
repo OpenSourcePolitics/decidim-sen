@@ -191,9 +191,9 @@ fr:
         back_home: Back home
     initiatives:
       form:
-        add_attachments: Ajouter un document
-        attachment_legend: Document
-        delete_attachment: Supprimer le document
+        add_attachments: Ajouter des pièces-jointes
+        attachment_legend: Pièces-jointes
+        delete_attachment: Supprimer les pièces-jointes
       initiatives:
         share_buttons:
           share_link: Partager le lien
