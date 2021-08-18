@@ -209,7 +209,7 @@ fr:
           link: https://franceconnect.gouv.fr/
           text: Qu'est-ce-que FranceConnect ?
       france_connect_profile:
-        explanation: "<b><FONT size=\"5pt\"> Pour déposer une pétition </FONT></b> <br /> <b>L'auteur d'une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l'authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>"
+        explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L''auteur d''une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l''authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
       france_connect_uid:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
         explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
@@ -232,7 +232,7 @@ fr:
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour lire nos conditions générales d'utilisation mises à jour et les accepter. <br />Si vous ne les acceptez pas, vous ne pourrez pas déposer de pétition.
-          title: "Obligatoire : consultez les conditions générales d'utilisation mises à jour"
+          title: 'Obligatoire : consultez les conditions générales d''utilisation mises à jour'
     profile:
       deleted: Auteur ayant supprimé son compte
     progress_bar:
@@ -250,7 +250,7 @@ fr:
         profile: Auteur ayant supprimé son compte
     states:
       accepted: Seuil atteint
-      expired:  Seuil non atteint
+      expired: Seuil non atteint
     system:
       organizations:
         omniauth_settings:
@@ -352,7 +352,7 @@ fr:
         ok: Ok
       footer:
         download_open_data: Données ouvertes
-        made_with_open_source: "Site réalisé par <a href=\"https://opensourcepolitics.eu\" target=\"_blank\">Open Source Politics</a> grâce au logiciel libre <a target=\"_blank\" href=\"https://github.com/decidim/decidim\">logiciel libre Decidim</a>."
+        made_with_open_source: Site réalisé par <a href="https://opensourcepolitics.eu" target="_blank">Open Source Politics</a> grâce au logiciel libre <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         official_url: site du Sénat
       header:
         close_menu: Fermer
