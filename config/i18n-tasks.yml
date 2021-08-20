@@ -88,15 +88,16 @@ ignore_missing:
   - decidim.initiatives.initiatives.show.*
   - decidim.admin.actions.*
   - decidim.admin.models.initiatives.fields.*
+  - decidim.admin.menu.initiatives
+  - decidim.admin.menu.initiatives.initiatives_types
   - decidim.initiatives.admin.answers.info_initiative.*
   - decidim.initiatives.admin.initiatives.index.*
   - decidim.initiatives.admin.initiatives.edit.*
   - decidim.initiatives.admin.initiatives.form.title
   - decidim.initiatives.actions.answer
-  - decidim.initiatives.application_helper.filter_state_values.*
-  - decidim.initiatives.application_helper.filter_state_values.filter_scope_values.all
-  - decidim.initiatives.application_helper.filter_type_values.filter_scope_values.all
-  - decidim.initiatives.application_helper.filter_area_values.filter_scope_values.all
+  - decidim.initiatives.application_helper.filter_scope_values.all
+  - decidim.initiatives.application_helper.filter_type_values.all
+  - decidim.initiatives.application_helper.filter_area_values.all
   - decidim.initiatives.create_initiative.fill_data.*
   - decidim.initiatives.create_initiative.finish.*
   - decidim.initiatives.create_initiative.previous_form.*
@@ -122,7 +123,7 @@ ignore_unused:
   - devise.failure.*
   - devise.omniauth_callbacks.success
   - devise.registrations.destroyed
-  - devise.registrations.logout
+  - devise.registrations.logout.success
   - devise.mailer.email_changed.subject
   - devise.mailer.confirmation_instructions.subject
   - decidim.system.organizations.omniauth_settings.*
@@ -156,5 +157,6 @@ ignore_unused:
   - decidim.shared.floating_help.help
   - decidim.states.accepted
   - decidim.states.expired
-  - decidim.verifications.omniauth.authorizations.new
+  - decidim.verifications.omniauth.authorizations.new.error
+  - decidim.verifications.omniauth.errors
   - decidim.verifications.omniauth.erros.anti_affinity
