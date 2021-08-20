@@ -82,44 +82,79 @@ translation:
 
 # Do not consider these keys missing:
 ignore_missing:
+  - activemodel.attributes.initiative.signature_type_values.online
+  - activemodel.attributes.initiative.signature_type_values.offline
   - faker.address.country_code
   - decidim.initiatives.initiatives.show.*
-  - decidim.admin.actions.configure
+  - decidim.admin.actions.*
   - decidim.admin.models.initiatives.fields.*
+  - decidim.initiatives.admin.answers.info_initiative.*
   - decidim.initiatives.admin.initiatives.index.*
+  - decidim.initiatives.admin.initiatives.edit.*
+  - decidim.initiatives.admin.initiatives.form.title
   - decidim.initiatives.actions.answer
+  - decidim.initiatives.application_helper.filter_state_values.*
+  - decidim.initiatives.application_helper.filter_state_values.filter_scope_values.all
+  - decidim.initiatives.application_helper.filter_type_values.filter_scope_values.all
+  - decidim.initiatives.application_helper.filter_area_values.filter_scope_values.all
+  - decidim.initiatives.create_initiative.fill_data.*
+  - decidim.initiatives.create_initiative.finish.*
+  - decidim.initiatives.create_initiative.previous_form.*
+  - decidim.initiatives.create_initiative.promotal_committee.*
+  - decidim.initiatives.initiative_votes.create.success_html
+  - decidim.initiatives.initiative_signatures.finish.back_to_initiative
+  - decidim.initiatives.initiatives.filters.*
+  - decidim.initiatives.initiatives.index_header.new_initiative
+  - decidim.initiatives.initiatives_mailer.*
   - layouts.decidim.initiative_creation_header.*
+  - layouts.decidim.initiative_signature_creation_header.finished
+  - layouts.decidim.initiative_header_steps.description
+  - layouts.decidim.admin.initiative.information
+  - layouts.decidim.admin.initiative.committee_members
 
 # Consider these keys used:
 ignore_unused:
+  - activemodel.attributes.*
+  - activemodel.errors.models.initiative.attributes.add_documents.*
+  - activemodel.models.decidim/attachment_created_event
   - forms.required_explanation
   - faker.address.country_code
+  - devise.failure.*
+  - devise.omniauth_callbacks.success
+  - devise.registrations.destroyed
+  - devise.registrations.logout
   - devise.mailer.email_changed.subject
   - devise.mailer.confirmation_instructions.subject
   - decidim.system.organizations.omniauth_settings.*
   - decidim.shared.version_author.profile
-  - decidim.pages.terms_and_conditions.refuse.*
+  - decidim.pages.index.title
+  - decidim.pages.terms_and_conditions.*
   - decidim.initiatives.update.*
   - decidim.event.initiatives.admin.support_threshold_reached.*
   - decidim.devise.omniauth_registrations.new.custom_agreement
   - decidim.authorization_handlers.admin.saml.*
   - decidim.admin.models.attachment.name
   - decidim.admin.models.attachment.fields.weight
-  - decidim.admin.menu.participatory_processes_submenu.attachments
+  - decidim.admin.menu.participatory_processes_submenu.*
   - decidim.admin.attachments.update.*
   - decidim.admin.attachments.new.*
   - decidim.admin.attachments.index.attachments_title
   - decidim.admin.attachments.edit.*
   - decidim.admin.attachments.destroy.success
   - decidim.admin.attachments.create.*
+  - decidim.application.documents.related_documents
+  - decidim.application.photos.related_photos
+  - decidim.account.destroy.*
+  - decidim.account.update.*
   - decidim.account.show.custom_agreement
   - decidim.account.show.change_address
-  - activemodel.models.decidim/attachment_created_event
-  - activemodel.attributes.user.*
   - decidim.authorization_handlers.admin.france_connect_uid.*
   - decidim.authorization_handlers.admin.france_connect_profile.*
   - decidim.authorization_handlers.admin.decidim.help
-  - activemodel.attributes.attachment.*
   - decidim.authorization_handlers.admin.france_connect.*
   - decidim.initiatives.initiatives.share_buttons.share_link
-  - activemodel.errors.models.initiative.attributes.add_documents.*
+  - decidim.shared.floating_help.help
+  - decidim.states.accepted
+  - decidim.states.expired
+  - decidim.verifications.omniauth.authorizations.new
+  - decidim.verifications.omniauth.erros.anti_affinity
