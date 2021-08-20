@@ -2,7 +2,6 @@
 
 # require 'extends/confirmations_controller_extend'
 require "extends/user_model_extend"
-require "extends/initiative_model_extend" if defined?(Decidim::Initiatives)
 require "extends/account_form_extend"
 require "extends/omniauth_registration_form_extend"
 require "extends/initiative_admin_form_extend" if defined?(Decidim::Initiatives)
