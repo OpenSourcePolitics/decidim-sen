@@ -15,7 +15,8 @@ en:
       static_page:
         weight: Rang d'affichage
       static_page_topic:
-        weight: Rang d'affichage      user:
+        weight: Rang d'affichage
+      user:
         address_complement: Complément d'adresse
         city: Commune
         country: Pays
