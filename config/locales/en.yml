@@ -48,7 +48,7 @@ en:
         explanation: Explanation
       destroy:
         error: Une erreur s'est produite lors de la suppression de votre compte.
-        success: Votre compte a été supprimé avec succès.
+        success: successfully
       show:
         change_address: Modifier mon adresse
         custom_agreement: Je certifie être citoyen français ou résidant régulièrement en France, ainsi que l’exactitude des informations du profil
@@ -57,7 +57,7 @@ en:
       update:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
-        success_with_email_confirmation: Un message vous est envoyé pour confirmer votre nouvelle adresse email.
+        success_with_email_confirmation: successfully
     admin:
       actions:
         cancel: Cancel
@@ -361,7 +361,7 @@ en:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
         admin_dashboard: Administration
-        profile: Mon compte
+        profile: Profile
         sign_out: Sign out
       user_profile:
         authorizations: Authorizations
