@@ -10,11 +10,12 @@ en:
         file: Fichier (*.pdf)
         title: Titre
         weight: Ordre de présentation
-      initiative:
-        signature_type_values:
-          offline: Offline
-          online: Online
-      user:
+      component:
+        weight: Rang d'affichage
+      static_page:
+        weight: Rang d'affichage
+      static_page_topic:
+        weight: Rang d'affichage      user:
         address_complement: Complément d'adresse
         city: Commune
         country: Pays
@@ -44,16 +45,21 @@ en:
           question: Question
           title: Delete my account
         explanation: Explanation
+      destroy:
+        error: Une erreur s'est produite lors de la suppression de votre compte.
+        success: Votre compte a été supprimé avec succès.
       show:
         change_address: Modifier mon adresse
         custom_agreement: Je certifie être citoyen français ou résidant régulièrement en France, ainsi que l’exactitude des informations du profil
         unconfirmed_email: l'adresse <code>%{email}</code> est en cours de validation.<br/> Un courriel vous a été transmis à cette adresse contenant un lien nous permettant de confirmer son existence.
         update_account: Update account
+      update:
+        error: Une erreur s'est produite lors de la mise à jour de votre compte.
+        success: Votre compte a été mis à jour avec succès.
+        success_with_email_confirmation: Un message vous est envoyé pour confirmer votre nouvelle adresse email.
     admin:
       actions:
         cancel: Cancel
-        publish: Publish
-        unpublish: Unpublish
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvelle pièce jointe.
@@ -76,6 +82,7 @@ en:
         initiatives_types: Initiatives types
         participatory_processes_submenu:
           attachments: Pièce(s) jointe(s)
+          moderations: Modérations
       models:
         attachment:
           fields:
@@ -94,6 +101,11 @@ en:
       titles:
         initiatives: Initiatives
     anonymous_user: Anonymous user
+    application:
+      documents:
+        related_documents: Pièces jointes
+      photos:
+        related_photos: Pièces jointes
     authorization_handlers:
       admin:
         decidim:
@@ -121,10 +133,10 @@ en:
         name: France Connect
       france_connect_profile:
         explanation: Validate with your France Connect account
-        name: France Connect Level II
+        name: Identification FranceConnect comme Auteur
       france_connect_uid:
         explanation: Validate with your France Connect account
-        name: France Connect Level I
+        name: Identification FranceConnect comme Signataire
       granted_at: Granted at
       omniauth_anti_affinity:
         explanation: Explanation
@@ -139,6 +151,7 @@ en:
       content:
         missing:
           explanation: Explanation
+          title: Identification par FranceConnect
         unconfirmed:
           confirmation_instructions: Confirmation instructions
           explanation_html: Explanation html
@@ -185,109 +198,17 @@ en:
     errors:
       not_found:
         back_home: Back home
-    event:
-      initiatives:
-        admin:
-          support_threshold_reached:
-            email_intro: decidim.event.initiatives.admin.support_threshold_reached.email_intro
-            email_outro: decidim.event.initiatives.admin.support_threshold_reached.email_outro
-            email_subject: decidim.event.initiatives.admin.support_threshold_reached.email_subject
-            notification_title: decidim.event.initiatives.admin.support_threshold_reached.notification_title
     initiatives:
-      admin:
-        answers:
-          info_initiative:
-            created_at: Created at
-            description: Description
-            initiative_votes_count: Initiative votes count
-            initiatives: Initiatives
-            state: State
-        initiatives:
-          edit:
-            accept: Accept
-            confirm: Confirm
-            discard: Discard
-            export_pdf_signatures: Export pdf signatures
-            export_votes: Export votes
-            reject: Reject
-            send_to_technical_validation: Send to technical validation
-            update: Update
-          form:
-            title: Title
-      application_helper:
-        filter_area_values:
-          all: All
-        filter_scope_values:
-          all: All
-        filter_state_values:
-          accepted: Accepted
-          all: All
-          classified: Classified
-          closed: Closed
-          debatted: Debatted
-          examinated: Examinated
-          open: Open
-          published: Published
-          rejected: Rejected
-        filter_type_values:
-          all: All
-      create_initiative:
-        fill_data:
-          back: Back
-          continue: Continue
-          fill_data_help: Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?
-          initiative_type: Initiative type
-          select_scope: Select scope
-        finish:
-          back: Back
-          back_to_initiatives: Back to initiatives
-          callout_text: Congratulations! Your initiative has been successfully created."
-          confirm: Confirm
-          edit_my_initiative: Edit my initiative
-          go_to_my_initiatives: Go to my initiatives
-          send_my_initiative: Send my initiative
-        previous_form:
-          back: Back
-          continue: Continue
-          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
-        promotal_committee:
-          back: Back
-          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least 2 people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
       form:
         add_attachments: Add document
         attachment_legend: Document
         delete_attachment: Supprimer le document
-      initiative_signatures:
-        finish:
-          back_to_initiative: Back to initiative
-      initiative_votes:
-        create:
-          success_html: Success html
       initiatives:
-        filters:
-          any: Any
-          area: Area
-          author: Author
-          myself: Myself
-          scope: Scope
-          search: Search
-          select_an_area: Select an area
-          sort: Sort
-          state: State
-          type: Type
-        index_header:
-          new_initiative: New initiative
         share_buttons:
           share_link: Share link
-      initiatives_mailer:
-        creation_subject: Creation subject
-        initiative_link:
-          check_initiative_details: Check initiative details
-          here: Here
-        more_information: More information
       update:
-        error: fr.decidim.initiatives.update.error
-        success: fr.decidim.initiatives.update.success
+        error: en.decidim.initiatives.update.error
+        success: en.decidim.initiatives.update.success
     notifications_settings:
       show:
         email_on_notification: Email on notification
@@ -302,14 +223,25 @@ en:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
         explanation: <b>La connexion via FranceConnect en tant que "Signataire" permet de garantir votre anonymat</b>,<br/> tout en assurant qu'une pétition n'est signée une seule fois par une même personne physique.<br/> <b>Aucune donnée personnelle n'est récupérée lors de la connexion avec FranceConnect</b>
     pages:
+      index:
+        title: Pages d'aide
       terms_and_conditions:
+        accept:
+          success: Vous avez accepté les conditions générales d'utilisation de la plateforme.
+        form:
+          agreement: Je suis d'accord avec les conditions générales d'utilisation
+          legend: Accepter les conditions générales d'utilisation
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme.
-          modal_btn_continue: Accepter les conditions <br/> et continuer
-          modal_btn_exit: Refuser les conditions <br/> et se déconnecter
-          modal_button: Refuser les conditions d'utilisation
+          modal_body: Si vous refusez, vous ne pourrez pas déposer de pétition. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les conditions générales d'utilisation et continuer
+          modal_btn_exit: Je les examinerai plus tard
+          modal_button: Refuser les conditions générales d'utilisation
           modal_close: Fermer la fenêtre
-          modal_title: Refusez-vous vraiment les conditions d'utilisation ?
+          modal_title: Refusez-vous vraiment les conditions générales d'utilisation mises à jour ?
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour lire nos conditions générales d'utilisation mises à jour et les accepter. <br />Si vous ne les acceptez pas, vous ne pourrez pas déposer de pétition.
+          title: 'Obligatoire : consultez les conditions générales d''utilisation mises à jour'
     profile:
       deleted: Compte utilisateur supprimé
     progress_bar:
@@ -318,11 +250,16 @@ en:
     scopes:
       global: Global
     shared:
+      floating_help:
+        help: Aide
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
       version_author:
-        profile: Compte utilisateur supprimé
+        profile: Auteur ayant supprimé son compte
+    states:
+      accepted: Seuil atteint
+      expired: Seuil non atteint
     system:
       organizations:
         omniauth_settings:
@@ -345,24 +282,33 @@ en:
     verifications:
       authorizations:
         index:
-          title: Liste des autorisations
+          title: Liste des identifications via FranceConnect
       metadata:
         content:
           active_email: '<b>Cet utilisateur peut être contacté aux coordonnées suivantes: <p><a href="mailto:%{email}">%{email}</a><br/>%{full_address}</p></b>'
           address_complement: 'Complément d''adresse : %{address_complement}'
-          title: Title
+          title: Données issues de France Connect
       omniauth:
         admin:
           authorizations:
             index:
               actions:
-                metadata: Metadata
+                metadata: Voir le profil
+        authorizations:
+          new:
+            error: Impossible de confirmer votre compte avec ce service externe.
+            success: Vous êtes bien identifié(e). Vous pouvez désormais signer ou déposer une pétition (selon votre profil d'identification).
         errors:
-          minimum_age: Minimum age
+          anti_affinity: 'Vous ne pouvez pas être connecté(e) avec ces 2 identités en même temps: %{anti_affinity}'
+          minimum_age: Vous devez avoir 18 ans au moins pour déposer une pétition.
   devise:
     confirmations:
       new:
         resend_confirmation_instructions: Resend confirmation instructions
+    failure:
+      already_authenticated: Vous êtes déjà identifié(e).
+      timeout: Votre session a expiré. Veuillez vous identifier à nouveau pour continuer.
+      unauthenticated: Vous devez vous authentifier via FranceConnect pour effectuer cette action.
     mailer:
       confirmation_instructions:
         action: Confirmer mon compte
@@ -374,9 +320,14 @@ en:
         greeting: Bonjour %{recipient},
         instruction: 'Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}. Vous pouvez la confirmer via le lien ci-dessous:'
         subject: Courriel modifié
+    omniauth_callbacks:
+      success: FranceConnect vous a bien authentifié(e) comme une personne unique.
     registrations:
+      destroyed: Au revoir ! Votre compte a été annulé avec succès. Nous espérons vous revoir bientôt.
+      logout:
+        success: Vous êtes de retour sur la plateforme e-pétitions du Sénat.
       new:
-        sign_up: Sign up
+        sign_up: Veuillez compléter votre profil
     sessions:
       new:
         sign_in: Sign in
@@ -392,10 +343,6 @@ en:
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   layouts:
     decidim:
-      admin:
-        initiative:
-          committee_members: Committee members
-          information: Information
       cookie_warning:
         description_html: Description html
         link_label: Link label
@@ -409,15 +356,11 @@ en:
         navigation: Navigation
         sign_in: Sign in
         sign_up: Sign up
-      initiative_header_steps:
-        description: Description
-      initiative_signature_creation_header:
-        finished: Finished
       mailer:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
         admin_dashboard: Administration
-        profile: Profile
+        profile: Mon compte
         sign_out: Sign out
       user_profile:
         authorizations: Authorizations
