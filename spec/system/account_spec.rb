@@ -17,7 +17,7 @@ describe "Account", type: :system do
       visit decidim.root_path
 
       within_user_menu do
-        find("a", text: "Profile").click
+        first('a', text: "Profile", visible: false).click
       end
 
       expect(page).to have_css("form.edit_user")
@@ -70,7 +70,7 @@ describe "Account", type: :system do
         user.reload
 
         within_user_menu do
-          find("a", text: "Profile").click
+          first('a', text: "Profile", visible: false).click
         end
 
         expect(find("#user_email").value).to eq(user.email)
