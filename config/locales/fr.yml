@@ -370,6 +370,7 @@ fr:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
         admin_dashboard: Tableau de bord
+        initiatives: Mes pétitions
         profile: Mon compte
         sign_out: Déconnexion
       user_profile:

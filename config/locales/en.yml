@@ -361,6 +361,7 @@ en:
         footer: À bientôt sur la plateforme de <a href="%{organization_url}">e-pétitions</a> du Sénat.
       user_menu:
         admin_dashboard: Administration
+        initiatives: My initiatives
         profile: Profile
         sign_out: Sign out
       user_profile:

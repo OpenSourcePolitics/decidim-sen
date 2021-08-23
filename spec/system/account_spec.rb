@@ -22,6 +22,38 @@ describe "Account", type: :system do
 
       expect(page).to have_css("form.edit_user")
     end
+
+    context "when clicking on the menu" do
+      context "and user is author" do
+        before do
+          allow(user).to receive(:signataire?).and_return(false)
+        end
+
+        it "user author sees link to initiatives" do
+          visit decidim.root_path
+
+          within_user_menu do
+            find("a", text: "MY INITIATIVES").click
+          end
+
+          expect(current_url).to include "/initiatives?filter%5Bauthor%5D=myself"
+        end
+      end
+
+      context "and user is signataire" do
+        before do
+          allow(user).to receive(:signataire?).and_return(true)
+        end
+
+        it "user doesn't see link to initiatives" do
+          visit decidim.root_path
+
+          within_user_menu do
+            expect(page).not_to have_content("MY INITIATIVES")
+          end
+        end
+      end
+    end
   end
 
   context "when on the account page" do
