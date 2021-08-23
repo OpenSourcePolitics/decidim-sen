@@ -7,7 +7,7 @@
 <% end %>
 <li><%= link_to t(".profile"), decidim.account_path %></li>
 
-<% unless current_user.signataire? %>
+<% if current_user.respond_to?(:signataire?) && !current_user.signataire?%>
   <li><%= link_to t(".initiatives"), decidim_initiatives.initiatives_path(filter: {"author"=>"myself"}) %></li>
 <% end %>
 <% if allowed_to? :read, :admin_dashboard %>
