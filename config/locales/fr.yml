@@ -138,7 +138,7 @@ fr:
         name: Identification FranceConnect comme Signataire
       granted_at: Accordé le %{timestamp}
       omniauth_anti_affinity:
-        explanation: Explanation
+        explanation: Vous devez vous connecter avec un autre compte pour valider cette autorisation.
       osp_authorization_handler:
         explanation: OSP authorization
         name: OSP Authorization handler
@@ -158,22 +158,17 @@ fr:
           title: Title
     data_portability:
       show:
-        download_data: Download data
-        download_data_description: Download data description
-        request_data: Request data
+        download_data: Télécharger les données
+        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
+        request_data: Demander les données
     devise:
       omniauth_registrations:
         new:
-          complete_profile: Complete profile
+          complete_profile: Complétez votre profil
           custom_agreement: Je certifie être citoyen français ou résidant régulièrement en France, ainsi que l’exactitude des informations du profil
-          registration_info: |-
-            Texte d'information pour la création de compte qui supporte le <code>HTML</code>.
-            <br/><br/>
-            <small>
-              <i>Please change me with translation key <code>decidim.devise.omniauth_registrations.new.registration_info</code><i/>
-            <small/>
-          sign_up: Sign up
-          subtitle: Subtitle
+          registration_info: "<b>L'auteur d'une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l'authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics.</p>"
+          sign_up: Veuillez compléter votre profil
+          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
       registrations:
         new:
           already_have_an_account?: Already have an account?
@@ -196,7 +191,7 @@ fr:
           sign_up_disabled: Pour vous connecter cliquez sur l'un des boutons ci-dessous en fonction de l'action que vous souhaitez réaliser.
     errors:
       not_found:
-        back_home: Back home
+        back_home: Retour à l'accueil
     initiatives:
       form:
         add_attachments: Ajouter des pièces-jointes
@@ -220,7 +215,7 @@ fr:
         explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L''auteur d''une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l''authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
       france_connect_uid:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
-        explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée),<br/>tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
+        explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée), tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
     pages:
       index:
         title: Pages d'aide
