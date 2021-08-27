@@ -247,7 +247,7 @@ fr:
       floating_help:
         help: Aide
       login_modal:
-        please_sign_in: Please sign in
+        please_sign_in: Veuillez vous connecter
         sign_up: Sign up
       version_author:
         profile: Auteur ayant supprimé son compte
