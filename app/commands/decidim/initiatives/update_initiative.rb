@@ -28,7 +28,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if existing_documents?
+        if existing_documents? || drop_documents_ids.present?
           @initiative.attachments.where(id: drop_documents_ids).destroy_all if drop_documents_ids.present?
         end
 
