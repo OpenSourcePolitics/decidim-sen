@@ -165,6 +165,17 @@ module Decidim
 
         it { is_expected.to be_valid }
 
+        context "when file has special characters" do
+          let(:attachment_params) do
+            {
+              title: "File éà (2) !",
+              file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+            }
+          end
+
+          it { is_expected.to be_valid }
+        end
+
         context "when the form has some errors" do
           let(:title) { nil }
 

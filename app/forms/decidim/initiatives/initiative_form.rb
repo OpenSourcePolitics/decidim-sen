@@ -105,6 +105,7 @@ module Decidim
 
         tmp_error = { file: false, size: false }
         add_documents.each do |document|
+          document = force_document_encoding(document)
           tmp_error[:file] = true unless valid_content_type_for?(document)
           tmp_error[:size] = true unless valid_size_for?(document)
         end
@@ -142,6 +143,14 @@ module Decidim
         attachment = Attachment.new(file: attachment.try(:file))
 
         errors.add(:attachment, :file) if !attachment.save && attachment.errors.has_key?(:file)
+      end
+
+      def force_document_encoding(document)
+        document.original_filename = document.original_filename.force_encoding("UTF-8") if document.respond_to?(:original_filename) && document.respond_to?(:original_filename=)
+
+        document.headers = document.headers.force_encoding("UTF-8") if document.respond_to?(:headers) && document.respond_to?(:headers=)
+
+        document
       end
     end
   end
