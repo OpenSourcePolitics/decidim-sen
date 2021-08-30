@@ -614,14 +614,14 @@ fr:
             see_all_initiatives: Voir toutes les pétitions
       show:
         badge_name:
-          accepted: Assez de signatures
+          accepted: Seuil atteint
           classified: Classée
-          created: Créé
+          created: Rédigée
           debatted: Débattue
           discarded: Rejetée
           examinated: Examinée
-          published: Publiée
-          rejected: Pas assez de signatures
+          published: En cours
+          rejected: Seuil non atteint
           validating: Validation technique
       state:
         accepted: Seuil atteint
