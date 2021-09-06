@@ -99,7 +99,7 @@ fr:
           omnipresent_banner_appearance_title: Omnipresent banner appearance title
       titles:
         initiatives: Initiatives
-    anonymous_user: Anonymous user
+    anonymous_user: Utilisateur représenté
     application:
       documents:
         related_documents: Pièces jointes
