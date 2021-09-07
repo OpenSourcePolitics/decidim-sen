@@ -1,5 +1,7 @@
 ## Direct overrides
 
+- app/controllers/decidim/initiatives/admin/initiatives_controller.rb
+  source : https://github.com/OpenSourcePolitics/decidim/blob/alt/petition_merge/decidim-initiatives/app/controllers/decidim/initiatives/admin/initiatives_controller.rb
 - app/assets/stylesheets/decidim/email.css  
   source : https://github.com/OpenSourcePolitics/decidim/blob/petition_merge/decidim-core/app/assets/stylesheets/decidim/email.css
 - app/cells/decidim/author/profile_inline.erb  
