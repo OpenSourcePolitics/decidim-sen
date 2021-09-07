@@ -113,6 +113,9 @@ ignore_missing:
   - layouts.decidim.initiative_header_steps.description
   - layouts.decidim.admin.initiative.information
   - layouts.decidim.admin.initiative.committee_members
+  - decidim.initiatives.admin.initiatives.update.success
+  - decidim.initiatives.admin.initiatives.update.error
+  - decidim.admin.exports.notice
 
 # Consider these keys used:
 ignore_unused:
