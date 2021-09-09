@@ -76,7 +76,7 @@ module Decidim
             let(:uploaded_files) do
               [
                 Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"),
-                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"),
+                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
               ]
             end
 
@@ -106,8 +106,10 @@ module Decidim
           end
 
           context "when user updates initiative type" do
-            let(:other_initiative_type_scope) { create(:initiatives_type_scope,
-                   type: create(:initiatives_type, organization: organization)) }
+            let(:other_initiative_type_scope) do
+              create(:initiatives_type_scope,
+                     type: create(:initiatives_type, organization: organization))
+            end
             let(:type_id) { other_initiative_type_scope.type.id }
 
             it "changes initiative type" do
