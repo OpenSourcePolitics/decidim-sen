@@ -31,8 +31,12 @@ module DestroyAccountExtend
     end
 
     def manage_user_initiatives
-      Decidim::Initiative.where(author: @user).each do |initiative|
-        initiative.update_columns(state: "discarded") # rubocop:disable Rails/SkipsModelValidations
+      Decidim::Initiative.where(author: @user).find_each do |initiative|
+        if initiative.supports_goal_reached?
+          initiative.update!(state: "accepted")
+        else
+          initiative.update!(state: "rejected")
+        end
       end
     end
 
