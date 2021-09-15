@@ -1,0 +1,30 @@
+
+window.onload = function () {
+    $("#initiative_add_documents").on("change", function () {
+        let maxSizeReached = false;
+        for (let i = 0; i < this.files.length; i++) {
+            if (this.files[i].size > <%= Decidim.maximum_attachment_size %>) {
+                maxSizeReached = true;
+            }
+        }
+
+        if (maxSizeReached) {
+            if ($(".max-size-attachment-error").length < 1) {
+                addError(this);
+            }
+        } else {
+            if ($(".max-size-attachment-error").length > 0) {
+                clearError(this);
+            }
+        }
+    });
+
+    const addError = (target) => {
+        $(target).parent().addClass("max-size-attachment-error-label");
+        $(target).parent().append("<small class='max-size-attachment-error'><%= I18n.t('size', scope: '.activemodel.errors.models.initiative.attributes.add_documents') %></small>");
+    }
+    const clearError = (target) => {
+        $(target).parent().removeClass("max-size-attachment-error-label");
+        $(".max-size-attachment-error").remove();
+    }
+}

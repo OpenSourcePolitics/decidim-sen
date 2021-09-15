@@ -446,3 +446,21 @@ main.anonymous {
 .callout > form > :last-child {
   margin-bottom: 0;
 }
+
+
+// Custo create initiative form attachments error
+.max-size-attachment-error-label, .max-size-attachment-error {
+  color: #ec5840;
+}
+
+.max-size-attachment-error-label > input {
+  border-color: #ec5840;
+}
+
+.max-size-attachment-error {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
