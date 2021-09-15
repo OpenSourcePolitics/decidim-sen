@@ -21,7 +21,7 @@ window.onload = function () {
 
     const addError = (target) => {
         $(target).parent().addClass("max-size-attachment-error-label");
-        $(target).parent().append("<small class='max-size-attachment-error'><%= I18n.t('size', scope: '.activemodel.errors.models.initiative.attributes.add_documents') %></small>");
+        $(target).parent().append("<small class='max-size-attachment-error'><%= I18n.t('size', scope: 'activemodel.errors.models.initiative.attributes.add_documents') %></small>");
     }
     const clearError = (target) => {
         $(target).parent().removeClass("max-size-attachment-error-label");

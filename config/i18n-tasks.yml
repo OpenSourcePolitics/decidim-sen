@@ -84,6 +84,7 @@ translation:
 ignore_missing:
   - activemodel.attributes.initiative.signature_type_values.online
   - activemodel.attributes.initiative.signature_type_values.offline
+  - activemodel.errors.models.initiative.attributes.add_documents.size
   - faker.address.country_code
   - decidim.initiatives.initiatives.show.*
   - decidim.admin.actions.*
