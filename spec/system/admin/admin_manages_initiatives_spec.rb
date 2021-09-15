@@ -64,10 +64,31 @@ describe "Admin manages initiatives", type: :system do
   end
 
   describe "listing initiatives" do
-    it "displays initiatives in DESC order" do
-      expect(current_url).to include("=id+desc")
-      expect(find(".sort_link.desc").text).to include("ID")
-      expect(find("tbody>tr:first-child>td:first-child").text).to eq(Decidim::Initiative.last.id.to_s)
+    shared_examples_for "sort by ID desc" do
+      it "displays initiatives in DESC order" do
+        expect(find(".sort_link.desc").text).to include("ID")
+        expect(find("tbody>tr:first-child>td:first-child").text).to eq(Decidim::Initiative.last.id.to_s)
+      end
+    end
+
+    context "when listing from main nav" do
+      before do
+        within ".main-nav" do
+          click_link "Initiatives"
+        end
+      end
+
+      it_behaves_like "sort by ID desc"
+    end
+
+    context "when listing from secondary nav" do
+      before do
+        within ".secondary-nav" do
+          click_link "Initiatives"
+        end
+      end
+
+      it_behaves_like "sort by ID desc"
     end
 
     STATES.each do |state|

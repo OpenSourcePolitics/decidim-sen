@@ -30,7 +30,7 @@ module Decidim
       validate :trigger_attachment_errors
       validate :check_type_documents
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
-        form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
+        initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
 
       def map_model(model)

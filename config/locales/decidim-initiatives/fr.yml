@@ -401,14 +401,14 @@ fr:
           back: Retour
           back_to_initiatives: Retourner à la liste des pétitions
           callout_text: "Bravo, votre pétition est rédigée et enregistrée dans votre tableau de bord. Attention ! Elle n'est pas encore publiée : il vous reste à l'envoyer à la validation technique du Sénat (voir ci-dessous)"
-          confirm: Confirmer
+          confirm: Envoyer ma pétition à la validation technique
           edit_my_initiative: Modifier ma pétition
           go_to_my_initiatives: Consulter mes pétitions
           more_information: "(Plus d'informations)"
           send_my_initiative: Envoyer à la validation technique
         finish_help:
-          publish_helper_text: "<p>Votre pétition est rédigée et enregistrée dans votre tableau de bord. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l'ouvrir au recueil de signatures. </p>"
-          access_reminder: Retrouvez et gérez vos pétitions dans l'index des pétitions en cliquant sur le filtre Mes pétitions.
+          publish_helper_text: "<p>Votre pétition est rédigée et enregistrée dans vos pétitions. </p> <ul> <li>Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat. </li> <li>Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Modifier ma pétition ».</li> </ul> <p>Une fois votre pétition envoyée, le Sénat s'engage à vous répondre dans un délai de quinze jours et, si votre pétition est recevable, la publier et l'ouvrir au recueil de signatures. </p>"
+          access_reminder: Retrouvez et gérez vos pétitions dans l'index des pétitions en cliquant sur le filtre "Mes pétitions".
           help_for_organizations: Attention ! Votre pétition est encore à l’état de projet ; elle n’est pas transmise au Sénat.
           help_in_person_signatures: "Pour ajouter des pièces jointes en format pdf, la relire une dernière fois et l’envoyer au Sénat pour validation : cliquer sur « Accéder à mes pétitions »."
           help_text: Votre pétition est rédigée et enregistrée dans votre tableau de bord.
@@ -614,14 +614,14 @@ fr:
             see_all_initiatives: Voir toutes les pétitions
       show:
         badge_name:
-          accepted: Assez de signatures
+          accepted: Seuil atteint
           classified: Classée
-          created: Créé
+          created: Rédigée
           debatted: Débattue
           discarded: Rejetée
           examinated: Examinée
-          published: Publiée
-          rejected: Pas assez de signatures
+          published: En cours
+          rejected: Seuil non atteint
           validating: Validation technique
       state:
         accepted: Seuil atteint

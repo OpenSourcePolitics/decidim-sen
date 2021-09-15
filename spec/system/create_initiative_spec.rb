@@ -183,21 +183,12 @@ describe "Initiative", type: :system do
           end
 
           it "Information collected in previous steps is already filled" do
-            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
             expect(find(:xpath, "//textarea[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
+            expect(find("#initiative_type_id").value).to eq(initiative_type.id.to_s)
+            expect(find_all("#initiative_type_id option").count).to eq(1)
           end
           # rubocop:enable Capybara/VisibilityMatcher
-
-          context "when only one signature collection and scope are available" do
-            let(:other_initiative_type_scope) { nil }
-            let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
-
-            it "hides and automatically selects the values" do
-              expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
-            end
-          end
 
           context "when the initiative type does not enable custom signature end date" do
             it "does not show the signature end date" do
