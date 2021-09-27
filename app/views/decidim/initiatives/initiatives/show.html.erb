@@ -29,19 +29,25 @@
   <% end %>
 
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if can_be_interacted_with?(current_initiative) %>
-      <div class="card text-center">
-        <div class="card__content">
+    <div class="card text-center">
+      <div class="card__content">
+        <% if can_be_displayed_for?(current_initiative) %>
           <%= render partial: "progress_bar" %>
-          <% if current_initiative.votes_enabled? && !current_initiative.classified? %>
-            <div id="initiative-<%= current_initiative.id %>-vote-cabin">
-              <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-            </div>
-          <% end %>
+        <% end %>
+
+        <% if can_be_interacted_with?(current_initiative) && current_initiative.votes_enabled? && !current_initiative.classified? %>
+          <div id="initiative-<%= current_initiative.id %>-vote-cabin">
+            <%= render partial: "vote_cabin", locals: {initiative: current_initiative} %>
+          </div>
+        <% end %>
+
+        <% if can_be_interacted_with?(current_initiative) %>
           <%= render partial: "interactions" %>
-        </div>
+        <% end %>
       </div>
-    <% elsif allowed_to? :edit, :initiative, initiative: current_initiative %>
+    </div>
+
+    <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
       <div class="card text-center">
         <div class="card__content">
           <%= link_to t(".edit"),
@@ -54,6 +60,7 @@
         </div>
       </div>
     <% end %>
+
     <% if current_user %>
       <div class="card text-center follow-section">
         <div class="card__content">
@@ -62,11 +69,14 @@
         </div>
       </div>
     <% end %>
+
     <% if current_initiative.votes_enabled_state? || current_initiative.accepted? %>
       <%= render partial: "share_buttons" %>
       <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
     <% end %>
+
     <%= resource_reference(current_initiative) %>
+
     <div class="tech-info">
       <strong class="text-uppercase">
         <%= t(".version", number: "#{current_initiative.versions_count}") %>
