@@ -200,6 +200,10 @@ fr:
       initiatives:
         share_buttons:
           share_link: Partager le lien
+        vote_cabin:
+          supports_required: Supports required
+      states:
+        expired: Expired
       update:
         error: Une erreur est survenue lors de la mise à jour de la pétition
         success: La pétition a bien été mise à jour

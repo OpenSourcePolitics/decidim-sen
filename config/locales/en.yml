@@ -207,6 +207,10 @@ en:
       initiatives:
         share_buttons:
           share_link: Share link
+        vote_cabin:
+          supports_required: Supports required
+      states:
+        expired: Expired
       update:
         error: en.decidim.initiatives.update.error
         success: en.decidim.initiatives.update.success
