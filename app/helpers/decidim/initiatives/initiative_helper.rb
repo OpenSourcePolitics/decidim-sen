@@ -215,16 +215,16 @@ module Decidim
 
       def authorizations
         @authorizations ||= Decidim::Verifications::Authorizations.new(
-            organization: current_organization,
-            user: current_initiative.author,
-            granted: true,
-            name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map(&:handler_name)
+          organization: current_organization,
+          user: current_initiative.author,
+          granted: true,
+          name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map(&:handler_name)
         )
       end
 
       def action_authorized_to(action, resource: nil, permissions_holder: nil)
         action_authorization_cache[action_authorization_cache_key(action, resource, permissions_holder)] ||=
-            ::Decidim::ActionAuthorizer.new(current_initiative.author, action, permissions_holder || resource&.component || current_component, resource).authorize
+          ::Decidim::ActionAuthorizer.new(current_initiative.author, action, permissions_holder || resource&.component || current_component, resource).authorize
       end
 
       def action_authorization_cache

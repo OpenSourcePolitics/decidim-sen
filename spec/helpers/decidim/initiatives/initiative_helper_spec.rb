@@ -127,7 +127,7 @@ module Decidim
           let(:initiative) { create(:initiative, :discarded) }
 
           it { is_expected.to be_truthy }
-          end
+        end
 
         context "when rejected?" do
           let(:initiative) { create(:initiative, :rejected) }

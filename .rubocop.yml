@@ -1256,4 +1256,7 @@ RSpec/LeakyConstantDeclaration:
 RSpec/DescribedClass:
   Enabled: false
 
+Rails/HelperInstanceVariable:
+  Enabled: false
+
 inherit_from: .rubocop_rails.yml
