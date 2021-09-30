@@ -101,8 +101,13 @@ $navbar-background: darken( $title-bar-background, 10%);
   display: none;
 }
 
-#initiatives > div > div > div.order-by > div.order-by__dropdown > ul > li > ul > li:nth-child(2) {
+#initiatives > div > div > div.order-by > div.order-by__dropdown > ul > li > ul > li:nth-child(5) {
   display: none;
+}
+
+.callout.success {
+  background-color: #eefbf3;
+  color: #3d393c;
 }
 
 // Hide authorization handler profile tab
