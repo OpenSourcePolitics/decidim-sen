@@ -101,6 +101,7 @@ $navbar-background: darken( $title-bar-background, 10%);
   display: none;
 }
 
+/*Hide answer_date in initiatives sorting options*/
 #initiatives > div > div > div.order-by > div.order-by__dropdown > ul > li > ul > li:nth-child(5) {
   display: none;
 }
