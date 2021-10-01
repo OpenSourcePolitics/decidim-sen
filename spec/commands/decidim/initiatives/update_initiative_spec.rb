@@ -24,8 +24,8 @@ module Decidim
       let(:current_files) { [] }
 
       describe "call" do
-        let(:title) { "Changed Title" }
-        let(:description) { "Changed description" }
+        let(:title) { "This is my <h2>initiative</h2> new title" }
+        let(:description) { "This my corrupted <h2>edited initiative</h2> with a code injection <script>alert('Injection');</script>" }
         let(:type_id) { initiative.type.id }
         let(:form_params) do
           {
@@ -69,7 +69,7 @@ module Decidim
             expect(initiative.title).to be_kind_of(Hash)
             expect(initiative.title["en"]).to eq title
             expect(initiative.description).to be_kind_of(Hash)
-            expect(initiative.description["en"]).to eq description
+            expect(initiative.description["en"]).to match "This my corrupted edited initiative with a code injection"
           end
 
           context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do

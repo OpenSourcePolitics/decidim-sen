@@ -57,7 +57,7 @@ module Decidim
       def attributes
         attrs = {
           title: { current_locale => form.title },
-          description: { current_locale => form.description },
+          description: { current_locale => Decidim::ApplicationController.helpers.strip_tags(form.description) },
           hashtag: form.hashtag
         }
 
