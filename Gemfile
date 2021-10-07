@@ -22,6 +22,7 @@ gem "wkhtmltopdf-binary"
 gem "activerecord-session_store"
 
 gem "omniauth_openid_connect", "0.3.1"
+gem "openid_connect", "~> 1.3"
 
 gem "ruby-progressbar"
 gem "rubyzip", require: "zip"

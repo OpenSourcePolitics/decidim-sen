@@ -358,7 +358,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crack (0.4.5)
       rexml
@@ -573,7 +573,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_magick (4.11.0)
-    mini_mime (1.1.0)
+    mini_mime (1.1.1)
     mini_portile2 (2.5.1)
     minitest (5.14.4)
     mixlib-cli (1.7.0)
@@ -624,7 +624,7 @@ GEM
       addressable (~> 2.5)
       omniauth (~> 1.3)
       openid_connect (~> 1.1)
-    openid_connect (1.2.0)
+    openid_connect (1.3.0)
       activemodel
       attr_required (>= 1.0.0)
       json-jwt (>= 1.5.0)
@@ -667,7 +667,7 @@ GEM
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
-    rack-oauth2 (1.16.0)
+    rack-oauth2 (1.19.0)
       activesupport
       attr_required
       httpclient
@@ -842,7 +842,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
-    swd (1.2.0)
+    swd (1.3.0)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
       httpclient (>= 2.4)
@@ -892,7 +892,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webfinger (1.1.0)
+    webfinger (1.2.0)
       activesupport
       httpclient (>= 2.4)
     webmock (3.13.0)
@@ -934,6 +934,7 @@ DEPENDENCIES
   lograge
   newrelic_rpm
   omniauth_openid_connect (= 0.3.1)
+  openid_connect (~> 1.3)
   passenger
   puma (>= 4.3)
   rails (= 5.2.4.4)
