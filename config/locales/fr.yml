@@ -28,8 +28,8 @@ fr:
         initiative:
           attributes:
             add_documents:
-              file: un ou plusieurs fichiers ne semblent pas avoir le bon format, les formats de documents acceptés sont PDF
-              needs_to_be_reattached: Attention ! veuillez téléverser à nouveau l'ensemble de vos fichiers PDF avant d'enregistrer votre pétition
+              file: un ou plusieurs fichiers ne semblent pas avoir le bon format. Seuls les documents au format PDF sont acceptés.
+              needs_to_be_reattached: Attention ! Veuillez téléverser à nouveau l'ensemble de vos fichiers PDF avant d'enregistrer votre pétition.
               size: Au moins un de vos fichiers dépasse la poids maximal de 10 Mo
     models:
       decidim/attachment_created_event: Pièce jointe

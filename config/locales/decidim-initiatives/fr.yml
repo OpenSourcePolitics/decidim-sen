@@ -14,7 +14,7 @@ fr:
         offline_votes: Votes en présentiel
         offline_votes_for_scope: Signatures en présentiel pour %{scope}
         scope_id: Secteur
-        signature_end_date: Fin de la période de collecte des signatures
+        signature_end_date: Fin de la période de collecte des signatures (penser à changer le statut de la pétition avec le bouton adapté, seuil atteint, seuil non atteint)
         signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:

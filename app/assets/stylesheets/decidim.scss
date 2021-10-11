@@ -315,6 +315,10 @@ $navbar-background: darken( $title-bar-background, 10%);
   background-color: $success;
 }
 
+.button--sc:hover, .button--sc:focus{
+  box-shadow: none;
+}
+
 .reveal .explanation {
   font-style: normal;
   font-size: 100%
