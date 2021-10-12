@@ -559,7 +559,7 @@ fr:
             published: Cette pétition est en cours de signature
             rejected: Cette pétition n'a pas atteint le seuil de signatures requis
             validating: Cette pétition est en cours d'évaluation
-          initiative_rejected_reason: Cette pétition est caduque (elle n'a pas atteint le seuil de signatures requis au terme du délai ou le compte de son auteur a été supprimé).
+          initiative_rejected_reason: Cette pétition est fermée aux signatures.
         show:
           any_vote_method: Cette pétition recueille des signatures en ligne ainsi
             qu'en présentiel.
