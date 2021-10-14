@@ -10,14 +10,14 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-          delete_reason: "I want to delete my account"
+        delete_reason: "I want to delete my account"
       }
     end
 
     let(:form) do
       form = double(
-          delete_reason: data[:delete_reason],
-          valid?: valid
+        delete_reason: data[:delete_reason],
+        valid?: valid
       )
 
       form
