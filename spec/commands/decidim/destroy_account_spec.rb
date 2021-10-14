@@ -10,14 +10,14 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-        delete_reason: "I want to delete my account"
+          delete_reason: "I want to delete my account"
       }
     end
 
     let(:form) do
       form = double(
-        delete_reason: data[:delete_reason],
-        valid?: valid
+          delete_reason: data[:delete_reason],
+          valid?: valid
       )
 
       form
@@ -98,6 +98,24 @@ module Decidim
         end
 
         context "when initiative has not reached the signature threshold" do
+          context "when initiative has created state" do
+            let!(:initiative) { create(:initiative, state: "created", scoped_type: scoped_type, organization: scoped_type.type.organization) }
+
+            it "stays in the same state" do
+              command.call
+              expect(initiative.reload.state).to eq("created")
+            end
+          end
+
+          context "when initiative has technical validation" do
+            let!(:initiative) { create(:initiative, state: "validating", scoped_type: scoped_type, organization: scoped_type.type.organization) }
+
+            it "stays in the same state" do
+              command.call
+              expect(initiative.reload.state).to eq("validating")
+            end
+          end
+
           it "Sets the initiative state as rejected" do
             command.call
             expect(initiative.reload.state).to eq("rejected")

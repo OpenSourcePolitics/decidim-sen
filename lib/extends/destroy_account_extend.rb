@@ -35,6 +35,8 @@ module DestroyAccountExtend
         if initiative.supports_goal_reached?
           initiative.update!(state: "accepted")
         else
+          return if initiative.state == "created" || initiative.state == "validating"
+
           initiative.update!(state: "rejected")
         end
       end
