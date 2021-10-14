@@ -50,15 +50,15 @@ module Decidim
 
         def user_can_read_participatory_space?
           return unless permission_action.action == :read &&
-              permission_action.subject == :participatory_space
+                        permission_action.subject == :participatory_space
 
           toggle_allow(user.admin? || initiative.has_authorship?(user))
         end
 
         def user_can_enter_space_area?
           return unless permission_action.action == :enter &&
-              permission_action.subject == :space_area &&
-              context.fetch(:space_name, nil) == :initiatives
+                        permission_action.subject == :space_area &&
+                        context.fetch(:space_name, nil) == :initiatives
 
           toggle_allow(user.admin? || has_initiatives?)
         end
@@ -154,13 +154,13 @@ module Decidim
             toggle_allow(initiative.offline_signature_type? || initiative.any_signature_type?)
           when :accept
             allowed = initiative.published? &&
-                initiative.signature_end_date < Date.current &&
-                initiative.percentage >= 100
+                      initiative.signature_end_date < Date.current &&
+                      initiative.percentage >= 100
             toggle_allow(allowed)
           when :reject
             allowed = initiative.published? &&
-                initiative.signature_end_date < Date.current &&
-                initiative.percentage < 100
+                      initiative.signature_end_date < Date.current &&
+                      initiative.percentage < 100
             toggle_allow(allowed)
           when :send_to_technical_validation
             toggle_allow(allowed_to_send_to_technical_validation?)
@@ -181,7 +181,7 @@ module Decidim
 
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
-              permission_action.action == :list
+                        permission_action.action == :list
 
           allow!
         end
@@ -210,10 +210,10 @@ module Decidim
           return true if initiative.accepted?
 
           initiative.discarded? ||
-              (initiative.created? && (
-              !initiative.created_by_individual? ||
-                  initiative.enough_committee_members?
-              ))
+            (initiative.created? && (
+            !initiative.created_by_individual? ||
+                initiative.enough_committee_members?
+          ))
         end
       end
     end

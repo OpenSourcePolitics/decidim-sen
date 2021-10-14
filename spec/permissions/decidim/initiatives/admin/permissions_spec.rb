@@ -291,8 +291,8 @@ describe Decidim::Initiatives::Admin::Permissions do
         it { is_expected.to eq true }
       end
 
-#      it_behaves_like "attached to an initiative", :update
-#      it_behaves_like "attached to an initiative", :destroy
+      #      it_behaves_like "attached to an initiative", :update
+      #      it_behaves_like "attached to an initiative", :destroy
     end
   end
 
@@ -324,7 +324,7 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when its scopes are empty" do
           let(:scopes) do
             [
-                double(initiatives: [])
+              double(initiatives: [])
             ]
           end
 
@@ -334,7 +334,7 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when its scopes are not empty" do
           let(:scopes) do
             [
-                double(initiatives: [1, 2, 3])
+              double(initiatives: [1, 2, 3])
             ]
           end
 
