@@ -34,9 +34,9 @@ module DestroyAccountExtend
       Decidim::Initiative.where(author: @user).find_each do |initiative|
         if initiative.supports_goal_reached?
           initiative.update!(state: "accepted")
+        elsif initiative.created? || initiative.validating?
+          initiative.update!(state: "discarded")
         else
-          next if initiative.state == "created" || initiative.state == "validating"
-
           initiative.update!(state: "rejected")
         end
       end
