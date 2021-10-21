@@ -223,6 +223,54 @@ module Decidim
           it { is_expected.to be_truthy }
         end
       end
+
+      describe "#manage_status_message" do
+        let(:subject) { helper.manage_status_message(initiative) }
+
+        context "when initiative goal reached" do
+          let!(:initiative) { create(:initiative, :published, scoped_type: scoped_type, organization: scoped_type.type.organization) }
+          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
+
+          before do
+            create(:initiative_user_vote, initiative: initiative)
+          end
+
+          it "returns most_popular_initiative translation" do
+            expect(subject).to eq "Most popular initiative"
+          end
+        end
+
+        context "when initiative is published and goal not reached" do
+          let!(:initiative) { create(:initiative, :published, scoped_type: scoped_type, organization: scoped_type.type.organization) }
+          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
+
+          it "returns need_more_votes translation" do
+            expect(subject).to eq "Need more signatures"
+          end
+        end
+
+        context "when initiative goal is not reached" do
+          let!(:initiative) { create(:initiative, :rejected, scoped_type: scoped_type, organization: scoped_type.type.organization) }
+          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
+
+          it "returns goal_not_reached translation" do
+            expect(subject).to eq "Seuil non atteint"
+          end
+        end
+
+        context "when initiative goal is reached and the initiative is closed" do
+          let!(:initiative) { create(:initiative, :accepted, scoped_type: scoped_type, organization: scoped_type.type.organization) }
+          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
+
+          before do
+            create(:initiative_user_vote, initiative: initiative)
+          end
+
+          it "returns most_popular_initiative translation" do
+            expect(subject).to eq "Most popular initiative"
+          end
+        end
+      end
     end
   end
 end
