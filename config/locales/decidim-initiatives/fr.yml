@@ -587,7 +587,8 @@ fr:
             one: SIGNATURE
             other: SIGNATURES
           most_popular_initiative: Seuil atteint
-          need_more_votes: Seuil non atteint
+          need_more_votes: Besoin de plus de signatures
+          goal_not_reached: Seuil non atteint
       initiatives_mailer:
         creation_subject: Votre pétition '%{title}' a été rédigée
         initiative_link:
