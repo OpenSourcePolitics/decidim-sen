@@ -267,19 +267,21 @@ module Decidim
         Decidim::InitiativesArchiveCategory.find(initiative.decidim_initiatives_archive_categories_id).name
       end
 
-      # rubocop:disable Style/IdenticalConditionalBranches
-      def manage_status_message(initiative)
-        if initiative.votes_enabled_state?
-          return t("decidim.initiatives.initiatives.votes_count.most_popular_initiative") if initiative.supports_goal_reached?
+      def supports_state_for(initiative)
+        return switch_support_msg(initiative, "decidim.initiatives.initiatives.votes_count.need_more_votes") if initiative.votes_enabled_state?
 
-          t("decidim.initiatives.initiatives.votes_count.need_more_votes")
-        else
-          return t("decidim.initiatives.initiatives.votes_count.most_popular_initiative") if initiative.supports_goal_reached?
-
-          t("decidim.initiatives.initiatives.votes_count.goal_not_reached")
-        end
+        switch_support_msg(initiative, "decidim.initiatives.initiatives.votes_count.goal_not_reached")
       end
-      # rubocop:enable Style/IdenticalConditionalBranches
+
+      # def supports_state_for(initiative)
+      #
+      # end
+
+      def switch_support_msg(initiative, i18n_key)
+        return t(i18n_key) unless initiative.supports_goal_reached?
+
+        t("decidim.initiatives.initiatives.votes_count.most_popular_initiative")
+      end
     end
   end
 end

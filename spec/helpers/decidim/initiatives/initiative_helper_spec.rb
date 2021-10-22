@@ -224,10 +224,10 @@ module Decidim
         end
       end
 
-      describe "#manage_status_message" do
-        let(:subject) { helper.manage_status_message(initiative) }
+      describe "#supports_state_for" do
+        let(:subject) { helper.supports_state_for(initiative) }
 
-        context "when initiative goal reached" do
+        context "when initiative goal is reached" do
           let!(:initiative) { create(:initiative, :published, scoped_type: scoped_type, organization: scoped_type.type.organization) }
           let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
 
@@ -238,36 +238,34 @@ module Decidim
           it "returns most_popular_initiative translation" do
             expect(subject).to eq "Most popular initiative"
           end
+
+          context "and initiative is closed" do
+            let!(:initiative) { create(:initiative, :accepted, scoped_type: scoped_type, organization: scoped_type.type.organization) }
+
+            before do
+              create(:initiative_user_vote, initiative: initiative)
+            end
+
+            it "returns most_popular_initiative translation" do
+              expect(subject).to eq "Most popular initiative"
+            end
+          end
         end
 
-        context "when initiative is published and goal not reached" do
+        context "when initiative goal is not reached" do
           let!(:initiative) { create(:initiative, :published, scoped_type: scoped_type, organization: scoped_type.type.organization) }
           let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
 
           it "returns need_more_votes translation" do
             expect(subject).to eq "Need more signatures"
           end
-        end
 
-        context "when initiative goal is not reached" do
-          let!(:initiative) { create(:initiative, :rejected, scoped_type: scoped_type, organization: scoped_type.type.organization) }
-          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
+          context "and initiative is rejected" do
+            let!(:initiative) { create(:initiative, :rejected, scoped_type: scoped_type, organization: scoped_type.type.organization) }
 
-          it "returns goal_not_reached translation" do
-            expect(subject).to eq "Seuil non atteint"
-          end
-        end
-
-        context "when initiative goal is reached and the initiative is closed" do
-          let!(:initiative) { create(:initiative, :accepted, scoped_type: scoped_type, organization: scoped_type.type.organization) }
-          let!(:scoped_type) { create(:initiatives_type_scope, supports_required: 1) }
-
-          before do
-            create(:initiative_user_vote, initiative: initiative)
-          end
-
-          it "returns most_popular_initiative translation" do
-            expect(subject).to eq "Most popular initiative"
+            it "returns goal_not_reached translation" do
+              expect(subject).to eq "Goal not reached"
+            end
           end
         end
       end
