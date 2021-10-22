@@ -205,8 +205,6 @@ en:
         attachment_legend: Document
         delete_attachment: Supprimer le document
       initiatives:
-        votes_count:
-          goal_not_reached: Goal not reached
         share_buttons:
           share_link: Share link
         vote_cabin:
@@ -355,7 +353,6 @@ en:
         link_label: Link label
         ok: Ok
       footer:
-        download_open_data: Open data
         made_with_open_source: Made with open source
         official_url: site du Sénat
       header:

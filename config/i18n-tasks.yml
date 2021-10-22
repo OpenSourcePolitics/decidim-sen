@@ -112,6 +112,8 @@ ignore_missing:
   - layouts.decidim.initiative_creation_header.*
   - layouts.decidim.initiative_signature_creation_header.finished
   - layouts.decidim.initiative_header_steps.description
+  - decidim.initiatives.initiatives.votes_count.most_popular_initiative
+  - decidim.initiatives.initiatives.result.initiative_rejected_reason
   - layouts.decidim.admin.initiative.information
   - layouts.decidim.admin.initiative.committee_members
   - decidim.initiatives.admin.initiatives.update.success
@@ -159,6 +161,7 @@ ignore_unused:
   - decidim.authorization_handlers.admin.decidim.help
   - decidim.authorization_handlers.admin.france_connect.*
   - decidim.initiatives.initiatives.share_buttons.share_link
+  - decidim.initiatives.initiatives.votes_count.goal_not_reached
   - decidim.shared.floating_help.help
   - decidim.states.accepted
   - decidim.states.expired
