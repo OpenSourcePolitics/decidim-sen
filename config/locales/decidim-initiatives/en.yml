@@ -16,3 +16,9 @@ en:
             published: Published
             rejected: Rejected
             validating: Validating
+    initiatives:
+      initiatives:
+        votes_count:
+          most_popular_initiative: Most popular initiative
+          need_more_votes: Need more signatures
+          goal_not_reached: Goal not reached

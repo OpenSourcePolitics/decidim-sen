@@ -273,10 +273,6 @@ module Decidim
         switch_support_msg(initiative, "decidim.initiatives.initiatives.votes_count.goal_not_reached")
       end
 
-      # def supports_state_for(initiative)
-      #
-      # end
-
       def switch_support_msg(initiative, i18n_key)
         return t(i18n_key) unless initiative.supports_goal_reached?
 
