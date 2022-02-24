@@ -5,4 +5,4 @@ metadata:
   labels:
     app: decidim-sen-sidekiq
 data:
-  rails_env: production
+  RAILS_ENV: production
