@@ -1,3 +1,3 @@
-if ENV.fetch("RACK_ATTACK_DISABLED", false)
-  Rack::Attack.enabled = false
-end
+# frozen_string_literal: true
+
+Rack::Attack.enabled = false if ENV.fetch("RACK_ATTACK_DISABLED", false)
