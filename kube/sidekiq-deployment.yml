@@ -25,3 +25,5 @@ spec:
         envFrom:
           - configMapRef:
               name: decidim-sen-sidekiq-config
+          - secretRef:
+              name: decidim-sidekiq-secret
