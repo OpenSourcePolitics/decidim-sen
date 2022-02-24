@@ -7,3 +7,5 @@ metadata:
 data:
   RAILS_ENV: production
   RAILS_SERVE_STATIC_FILES: "true"
+  APP_NAME: "decidim_sen"
+  "WEB_CONCURRENCY": "0"

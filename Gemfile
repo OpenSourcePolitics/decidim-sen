@@ -46,6 +46,8 @@ group :development do
 end
 
 group :production do
+  gem "hiredis"
+  gem "redis"
   gem "aws-sdk-s3"
   gem "dalli"
   gem "dalli-elasticache"
