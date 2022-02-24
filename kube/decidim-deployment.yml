@@ -14,13 +14,13 @@ spec:
       containers:
       - name: decidim-sen-app
         image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
-        resources:
-          requests:
-            cpu: "900m"
-            memory: "1250Mi"
-          limits:
-            cpu: "1024m"
-            memory: "1500Mi"
+        #resources:
+          #requests:
+            #cpu: "900m"
+            #memory: "1250Mi"
+          #limits:
+            #cpu: "1024m"
+            #memory: "1500Mi"
         ports:
         - containerPort: 3000
         env:
