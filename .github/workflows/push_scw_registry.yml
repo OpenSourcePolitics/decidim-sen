@@ -6,18 +6,25 @@ on:
     branches:
       - feature/kubernetes
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+env:
+  CACHE_IMAGE: ${{ secrets.PRODUCTION_TAG }}
+  DOCKER_BUILDKIT: 1
 
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build image
-        run: |
-          docker build . --compress --tag ${{ secrets.PRODUCTION_TAG }}
       - name: Login to registry
         run: |
           docker login ${{ secrets.REGISTRY }} -u userdoesnotmatter -p ${{ secrets.TOKEN }}
+      - name: Build from dockerfile
+        run: |
+          docker build \
+            --cache-from $CACHE_IMAGE \
+            --tag $CACHE_IMAGE \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --compress \
+            "."
       - name: Push Image
         run: |
-          docker push ${{ secrets.PRODUCTION_TAG }}
+          docker push $CACHE_IMAGE
