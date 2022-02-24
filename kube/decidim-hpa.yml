@@ -7,8 +7,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: decidim-sen-deployment
-  minReplicas: 1
-  maxReplicas: 1
+  minReplicas: 6
+  maxReplicas: 24
   metrics:
   - type: Resource
     resource:
