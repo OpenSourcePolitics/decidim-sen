@@ -1,9 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: decidim-sen-sidekiq
+  name: decidim-sen-sidekiq-deployment
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: decidim-sen-sidekiq
@@ -15,6 +14,13 @@ spec:
       containers:
       - name: decidim-sen-sidekiq
         image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
+        #resources:
+          #requests:
+            #cpu: "256m"
+            #memory: "600Mi"
+          #limits:
+            #cpu: "300m"
+            #memory: "900Mi"
         command: ["sidekiq", "-C", "config/sidekiq.yml"]
         env:
         - name: REDIS_URL
@@ -22,3 +28,13 @@ spec:
             secretKeyRef:
               name: decidim-sidekiq-secret
               key: redis_url
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: decidim-sen-sidekiq-config
+              key: rails_env
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: decidim-sen-app-secrets
+              key: secret_key_base

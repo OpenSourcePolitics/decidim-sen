@@ -1,5 +1,8 @@
 FROM ruby:2.6.5
 
+ENV RAILS_ENV=production
+ENV SECRET_KEY_BASE=dummy
+
 # Install NodeJS
 RUN curl https://deb.nodesource.com/setup_15.x | bash
 RUN apt install -y nodejs
@@ -22,6 +25,7 @@ ADD . /app
 WORKDIR /app
 
 RUN bundle install
+RUN bundle exec rails assets:precompile
 
 # Configure endpoint.
 COPY ./entrypoint.sh /usr/bin/

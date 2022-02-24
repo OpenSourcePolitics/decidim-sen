@@ -1,0 +1,23 @@
+---
+name: Deploy Image to SCW registry
+
+on:
+  push:
+    branches:
+      - feature/kubernetes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: |
+          docker build . --compress --tag ${{ secrets.PRODUCTION_TAG }}
+      - name: Login to registry
+        run: |
+          docker login ${{ secrets.REGISTRY }} -u userdoesnotmatter -p ${{ secrets.TOKEN }}
+      - name: Push Image
+        run: |
+          docker push ${{ secrets.PRODUCTION_TAG }}

@@ -5,5 +5,5 @@ metadata:
   labels:
     app: decidim-sen-app
 data:
-  RAILS_ENV: production
-  RAILS_SERVE_STATIC_FILES: "true"
+  rails_env: production
+  rails_serve_static_files: "true"

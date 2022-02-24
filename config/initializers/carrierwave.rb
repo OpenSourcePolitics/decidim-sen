@@ -17,11 +17,12 @@ if Rails.application.secrets.dig(:scaleway, :id).present? && Rails.env.productio
     # config.fog_use_ssl_for_aws = false
     # config.enable_processing = false
     # config.fog_public = false # optional, defaults to true
-    config.fog_directory = Rails.application.secrets.dig(:scaleway, :bucket_name) { "pps-prod-bucket" }
+    config.fog_directory = Rails.application.secrets.dig(:scaleway, :bucket_name)
     config.fog_attributes = {
       "Cache-Control" => "max-age=#{365.days.to_i}",
       "X-Content-Type-Options" => "nosniff"
     }
+    config.asset_host = "https://#{Rails.application.secrets[:asset_host]}" if Rails.application.secrets[:asset_host].present?
   end
 else
   CarrierWave.configure do |config|
