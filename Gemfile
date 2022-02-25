@@ -46,15 +46,15 @@ group :development do
 end
 
 group :production do
-  gem "hiredis"
-  gem "redis"
   gem "aws-sdk-s3"
   gem "dalli"
   gem "dalli-elasticache"
   gem "fog-aws"
+  gem "hiredis"
   gem "lograge"
   gem "newrelic_rpm"
   gem "passenger"
+  gem "redis"
   gem "sendgrid-ruby"
   gem "sidekiq"
   gem "sidekiq-scheduler"

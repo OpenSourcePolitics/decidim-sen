@@ -114,6 +114,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
+      - uses: actions/checkout@v2
       - name: Apply changes
         uses: actions-hub/kubectl@master
         env:
