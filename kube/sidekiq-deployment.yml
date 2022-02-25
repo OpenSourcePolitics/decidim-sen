@@ -11,6 +11,18 @@ spec:
       labels:
         app: decidim-sen-sidekiq
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - decidim-sen-sidekiq
+                topologyKey: topology.kubernetes.io/zone
       containers:
       - name: decidim-sen-sidekiq
         image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
