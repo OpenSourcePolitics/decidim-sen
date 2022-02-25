@@ -14,13 +14,13 @@ spec:
       containers:
       - name: decidim-sen-sidekiq
         image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
-        #resources:
-          #requests:
-            #cpu: "256m"
-            #memory: "600Mi"
-          #limits:
-            #cpu: "300m"
-            #memory: "900Mi"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "450Mi"
+          limits:
+            cpu: "1200m"
+            memory: "1200Mi"
         command: ["sidekiq", "-C", "config/sidekiq.yml"]
         envFrom:
           - configMapRef:

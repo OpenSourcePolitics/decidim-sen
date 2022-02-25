@@ -16,11 +16,11 @@ spec:
         image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
         resources:
           requests:
-            cpu: "900m"
-            memory: "1250Mi"
+            cpu: "600m"
+            memory: "450Mi"
           limits:
-            cpu: "1024m"
-            memory: "1500Mi"
+            cpu: "1200m"
+            memory: "1200Mi"
         ports:
         - containerPort: 3000
         envFrom:
