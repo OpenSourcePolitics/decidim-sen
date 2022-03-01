@@ -30,6 +30,7 @@ gem "sentry-raven"
 
 gem "dotenv-rails"
 gem "rails", "5.2.4.4"
+gem 'health_check'
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
