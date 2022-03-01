@@ -10,15 +10,9 @@ spec:
         - name: decidim-sen-migration-job
           image: rg.fr-par.scw.cloud/decidim-sen/decidim-sen:latest
           command: ["bundle",  "exec", "rails", "db:migrate"]
-          env:
-          - name: DATABASE_URL
-            valueFrom:
-              secretKeyRef:
+          envFrom:
+            - configMapRef:
+                name: decidim-sen-app-config
+            - secretRef:
                 name: decidim-sen-app-secrets
-                key: database_url
-          - name : SECRET_KEY_BASE
-            valueFrom:
-              secretKeyRef:
-                name: decidim-sen-app-secrets
-                key: secret_key_base
       restartPolicy: Never
