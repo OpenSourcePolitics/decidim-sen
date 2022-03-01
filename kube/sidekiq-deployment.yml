@@ -34,6 +34,26 @@ spec:
             cpu: "1200m"
             memory: "1200Mi"
         command: ["sidekiq", "-C", "config/sidekiq.yml"]
+        ports:
+          - containerPort: 7433
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 7433
+          initialDelaySeconds: 60 # app specific. Time your sidekiq takes to start processing.
+          timeoutSeconds: 5 # can be much less
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 7433
+            initialDelaySeconds: 60 # app specific
+            timeoutSeconds: 5 # can be much less
+          lifecycle:
+            preStop:
+              exec:
+                # SIGTERM triggers a quick exit; gracefully terminate instead
+                command: [ 'kube/sidekiq_quiet.sh' ]
+      terminationGracePeriodSeconds: 60 # put your longest Job time here plus security time.
         envFrom:
           - configMapRef:
               name: decidim-sen-sidekiq-config

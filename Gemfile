@@ -29,8 +29,9 @@ gem "rubyzip", require: "zip"
 gem "sentry-raven"
 
 gem "dotenv-rails"
+gem "health_check"
 gem "rails", "5.2.4.4"
-gem 'health_check'
+gem "sidekiq_alive"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
