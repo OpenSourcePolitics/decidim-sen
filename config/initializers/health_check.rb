@@ -23,7 +23,7 @@ HealthCheck.setup do |config|
   # Set to 200 if you want your want to distinguish between partial (text does not include success) and
   # total failure of rails application (http status of 500 etc)
 
-  config.http_status_for_error_text = 500
+  # config.http_status_for_error_text = 500
 
   # http status code used when an error object is output (json or xml)
   # Set to 200 if you want to distinguish between partial (healthy property == false) and
