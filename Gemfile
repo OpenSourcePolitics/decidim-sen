@@ -29,7 +29,9 @@ gem "rubyzip", require: "zip"
 gem "sentry-raven"
 
 gem "dotenv-rails"
+gem "health_check"
 gem "rails", "5.2.4.4"
+gem "sidekiq_alive"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -50,9 +52,11 @@ group :production do
   gem "dalli"
   gem "dalli-elasticache"
   gem "fog-aws"
+  gem "hiredis"
   gem "lograge"
   gem "newrelic_rpm"
   gem "passenger"
+  gem "redis"
   gem "sendgrid-ruby"
   gem "sidekiq"
   gem "sidekiq-scheduler"

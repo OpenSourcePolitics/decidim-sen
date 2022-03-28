@@ -18,6 +18,7 @@ module DecidimAws
     Decidim.unconfirmed_access_for = 0.days
     config.force_ssl = true
 
+    config.action_mailer.asset_host = "https://#{Rails.application.secrets[:asset_host]}" if Rails.application.secrets[:asset_host].present?
     # This needs to be set for correct images URLs in emails
     # DON'T FORGET to ALSO set this in `config/initializers/carrierwave.rb`
     # config.action_mailer.asset_host = ""
