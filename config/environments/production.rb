@@ -57,7 +57,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info').to_sym
   config.lograge.ignore_actions = ["HealthCheck::HealthCheckController#index"]
 
   # Prepend all log lines with the following tags.
