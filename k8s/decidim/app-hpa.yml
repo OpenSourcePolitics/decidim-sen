@@ -7,7 +7,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: decidim-sen-deployment
-  minReplicas: 6
+  minReplicas: 4
   maxReplicas: 24
   metrics:
   - type: Resource
@@ -15,4 +15,4 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 70
+        averageUtilization: 20
