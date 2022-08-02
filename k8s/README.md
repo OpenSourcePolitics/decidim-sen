@@ -83,6 +83,7 @@ Then you can deploy the pg-bouncer yaml.
 
 You need to create a secret with the following env vars:
 
+```
 DATABASE_HOST
 DATABASE_NAME
 DATABASE_PASSWORD
@@ -99,6 +100,7 @@ SCALEWAY_ID
 SCALEWAY_TOKEN
 SECRET_KEY_BASE
 SESSION_DAYS_TRIM_THRESHOLD
+```
 
 #### Manage deploy
 
