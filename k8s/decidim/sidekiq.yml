@@ -6,6 +6,7 @@ spec:
   selector:
     matchLabels:
       app: decidim-sen-sidekiq
+  replicas: 2
   template:
     metadata:
       labels:
@@ -64,14 +65,3 @@ spec:
               name: decidim-sen-app-config
           - secretRef:
               name: decidim-sen-app-secrets
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: decidim-sen-sidekiq-config
-  labels:
-    app: decidim-sen-sidekiq
-data:
-  RAILS_ENV: production
-  APP_NAME: "decidim_sen"
-  RAILS_LOG_TO_STDOUT: 'true'
