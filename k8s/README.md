@@ -77,6 +77,17 @@ POSTGRESQL_PASSWORD
 
 Then you can deploy the pg-bouncer yaml.
 
+#### Debug Helm Release
+
+Somtimes, it happens that the helm release gets stuck.
+(It would be in error in someway)
+
+A good debugging step is to "restart" the release with this command, for instance, for redis:
+```
+flux -n default suspend hr redis
+flux -n default resume hr redis
+```
+
 ### App
 
 #### Secret
