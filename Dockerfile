@@ -4,15 +4,13 @@ ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=dummy
 
 # Install NodeJS
-RUN curl https://deb.nodesource.com/setup_15.x | bash && \
-     apt install -y nodejs && \
-     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null && \
-     echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-     apt update && \
-     apt install -y yarn && \
-     apt install -y libicu-dev postgresql-client && \
-     npm install -g npm@6.3.0 && \
-     gem install bundler:2.2.17
+RUN curl https://deb.nodesource.com/setup_lts.x | bash && \
+    apt install -y nodejs && \
+    apt update && \
+    npm install -g npm@8.19.2 && \
+    npm install --global yarn && \
+    apt install -y libicu-dev postgresql-client && \
+    gem install bundler:2.2.17
 
 COPY Gemfile* ./
 RUN bundle install
