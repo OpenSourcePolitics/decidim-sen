@@ -57,7 +57,8 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info").to_sym
+  config.lograge.ignore_actions = ["HealthCheck::HealthCheckController#index"]
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -115,5 +116,21 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
-  config.cache_store = :dalli_store, Dalli::ElastiCache.new(ENV["ELASTICACHE_HOST"]).servers, { expires_in: 1.day, compress: true } if ENV["RAILS_LOG_TO_STDOUT"].present?
+  config.cache_store = :redis_cache_store, {
+    url: ENV["REDIS_URL"],
+    namespace: "#{ENV["APP_NAME"]}-memory-store"
+  }
+
+  if ENV["CACHE_ASSETS"].present?
+    config.public_file_server.headers = {
+      "Cache-Control" => "public, s-maxage=31536000, max-age=15552000",
+      "Expires" => 1.year.from_now.to_formatted_s(:rfc822).to_s
+    }
+  end
+
+  config.ssl_options = {
+    redirect: {
+      exclude: ->(request) { /health_check|sidekiq_alive/.match?(request.path) }
+    }
+  }
 end
