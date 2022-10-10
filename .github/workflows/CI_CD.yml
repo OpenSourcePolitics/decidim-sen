@@ -147,8 +147,7 @@ jobs:
       - run: bundle exec rubocop -P
         name: Lint Ruby files
   build:
-    # TODO: Remove this once we have merged on master
-    if: "github.ref == 'refs/heads/feature/kubernetes'"
+    if: "github.ref == 'refs/heads/master'"
     needs: [tests, tests_system, lint]
     runs-on: ubuntu-latest
     steps:
