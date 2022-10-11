@@ -1,6 +1,7 @@
 REGISTRY := rg.fr-par.scw.cloud
 NAMESPACE := decidim-sen
 VERSION := latest
+PREVIOUS_VERSION := oldest
 IMAGE_NAME := decidim-sen
 TAG := $(REGISTRY)/$(NAMESPACE)/$(IMAGE_NAME):$(VERSION)
 
@@ -9,14 +10,22 @@ login:
 
 build-classic:
 	docker build -t $(IMAGE_NAME):$(VERSION) . --compress
+
 build-scw:
 	docker build -t $(TAG) .
+
 push:
-	@make build-scw
 	@make login
-	docker push $(TAG)
-pull:
+	@make pull
+	@make rename
 	@make build-scw
+	docker push $(TAG)
+
+rename:
+	docker tag $(TAG) $(PREVIOUS_TAG)
+	docker push $(PREVIOUS_TAG)
+
+pull:
 	docker pull $(TAG)
 
 redis-setup:
