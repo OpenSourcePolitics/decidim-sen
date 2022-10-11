@@ -4,6 +4,7 @@ VERSION := latest
 PREVIOUS_VERSION := oldest
 IMAGE_NAME := decidim-sen
 TAG := $(REGISTRY)/$(NAMESPACE)/$(IMAGE_NAME):$(VERSION)
+PREVIOUS_TAG := $(REGISTRY)/$(NAMESPACE)/$(IMAGE_NAME):$(PREVIOUS_VERSION)
 
 login:
 	docker login $(REGISTRY) -u nologin -p $(SCW_SECRET_TOKEN)
