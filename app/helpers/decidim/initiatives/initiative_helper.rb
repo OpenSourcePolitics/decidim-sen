@@ -46,7 +46,7 @@ module Decidim
       end
 
       def extra_committee_members(limit = 2)
-        @accepted_committee_members.count - limit
+        @extra_committee_members = current_initiative.accepted_committee_members.to_ary.count - limit
       end
 
       # Returns if a committee member needs to be hidden or not
