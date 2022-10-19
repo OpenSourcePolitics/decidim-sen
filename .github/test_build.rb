@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# create env file if not exists
+system("touch .env") unless File.exist?(".env")
+
 # start docker compose in background
 system("docker-compose up -d")
 
