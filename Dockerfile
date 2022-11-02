@@ -18,7 +18,7 @@ RUN bundle install
 ADD . /app
 WORKDIR /app
 
-RUN bundle exec rails assets:precompile
+RUN bundle exec bootsnap precompile --gemfile app/ lib/ config/ bin/ db/ && bundle exec rails assets:precompile
 
 # Configure endpoint.
 COPY ./entrypoint.sh /usr/bin/
