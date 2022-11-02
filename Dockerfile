@@ -13,7 +13,7 @@ RUN curl https://deb.nodesource.com/setup_lts.x | bash && \
     gem install bundler:2.2.17
 
 COPY Gemfile* ./
-RUN bundle install
+RUN bundle config set --local without 'development test' && bundle install
 
 ADD . /app
 WORKDIR /app
