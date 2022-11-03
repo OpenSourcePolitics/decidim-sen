@@ -169,4 +169,3 @@ ignore_unused:
   - decidim.verifications.omniauth.authorizations.new.success
   - decidim.verifications.omniauth.errors
   - decidim.verifications.omniauth.errors.anti_affinity
-  - layouts.decidim.cookie_warning.*
