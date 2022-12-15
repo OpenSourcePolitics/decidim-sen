@@ -26,3 +26,6 @@
   CleanSessions:
     cron: '0 1 * * *'
     class: CleanSessions
+  CheckAnonymizableInitiatives:
+    cron: '0 1 * * *'
+    class: CheckAnonymizableInitiativesJob

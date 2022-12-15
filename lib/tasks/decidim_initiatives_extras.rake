@@ -6,7 +6,12 @@ namespace :decidim_initiatives do
     Decidim::Initiatives::OutdatedCreatedInitiatives
       .for(72.hours)
       .each do |initiative|
-        Decidim::Initiatives::Admin::SendInitiativeToTechnicalValidation.call(initiative, initiative.author)
-      end
+      Decidim::Initiatives::Admin::SendInitiativeToTechnicalValidation.call(initiative, initiative.author)
+    end
+  end
+
+  desc "Check for 3 years old initiatives and anonymize them"
+  task check_old: :environment do
+    Decidim::CheckAnonymizableInitiativesService.run
   end
 end
