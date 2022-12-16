@@ -19,6 +19,7 @@ gem "faker", "~> 1.9"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
+gem "activejob-uniqueness", require: "active_job/uniqueness/sidekiq_patch"
 gem "activerecord-session_store"
 
 gem "omniauth_openid_connect", "0.3.1"
