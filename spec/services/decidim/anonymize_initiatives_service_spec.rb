@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe CheckAnonymizableInitiativesService do
+  describe AnonymizeInitiativesService do
     let(:organization) { create(:organization) }
     let!(:initiative) { create(:initiative, organization: organization) }
     let!(:initiative2) { create(:initiative, organization: organization, created_at: 4.years.ago) }

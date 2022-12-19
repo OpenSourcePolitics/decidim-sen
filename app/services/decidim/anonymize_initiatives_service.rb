@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class CheckAnonymizableInitiativesService
+  class AnonymizeInitiativesService
     def self.run
       new.execute
     end

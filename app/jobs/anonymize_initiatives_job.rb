@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class CheckAnonymizableInitiativesJob < ApplicationJob
+class AnonymizeInitiativesJob < ApplicationJob
   queue_as :scheduled
   unique :while_executing, on_conflict: :log
 
   def perform
-    Decidim::CheckAnonymizableInitiativesService.run
+    Decidim::AnonymizeInitiativesService.run
   end
 end

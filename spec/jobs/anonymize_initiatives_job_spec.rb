@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe CheckAnonymizableInitiativesJob do
+describe AnonymizeInitiativesJob do
   subject { described_class }
 
   it "doesn't raise an error" do
@@ -10,7 +10,7 @@ describe CheckAnonymizableInitiativesJob do
   end
 
   it "calls the service" do
-    expect(Decidim::CheckAnonymizableInitiativesService).to receive(:run)
+    expect(Decidim::AnonymizeInitiativesService).to receive(:run)
     subject.perform_now
   end
 end

@@ -27,6 +27,6 @@
   CleanSessions:
     cron: '0 1 * * *'
     class: CleanSessions
-  CheckAnonymizableInitiatives:
+  AnonymizeInitiatives:
     cron: '0 1 * * *' # Run everyday at 1 am
-    class: CheckAnonymizableInitiativesJob
+    class: AnonymizeInitiativesJob

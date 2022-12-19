@@ -8,8 +8,8 @@ namespace :decidim_initiatives do
     end
   end
 
-  desc "Check for 3 years old initiatives and anonymize them"
-  task check_old: :environment do
-    Decidim::CheckAnonymizableInitiativesService.run
+  desc "Anonymize old initiatives (older than 3 years). Use ANONYMIZE_INITIATIVES=x.days to change the time"
+  task anonymize_initiatives: :environment do
+    Decidim::AnonymizeInitiativesService.run
   end
 end
