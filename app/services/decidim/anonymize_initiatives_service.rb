@@ -12,7 +12,9 @@ module Decidim
           data.map do |author, initiatives|
             anonymize(organization, author, initiatives)
           end
-        end.flatten.each(&:save!)
+        end.flatten
+             .compact
+             .each(&:save!)
       end
     end
 

@@ -25,12 +25,13 @@ module Decidim
     let!(:initiative3) { create(:initiative, organization: organization1, author: user2, created_at: 4.years.ago) }
     let!(:initiative4) { create(:initiative, organization: organization2, author: user3, created_at: 4.years.ago) }
 
-    let!(:initiative5) { create(:initiative, organization: organization1, author: user4, created_at: 1.years.ago) }
+    let!(:initiative5) { create(:initiative, organization: organization1, author: user4, created_at: 1.year.ago) }
 
     let!(:initiative6) { create(:initiative, organization: organization1, author: user_group, created_at: 4.years.ago) }
 
     describe "#execute" do
       it "anonymize initiatives older than 3 years" do
+        old_user_group = initiative6.author
         described_class.run
 
         expect(initiative1.reload.author).to be_deleted
@@ -42,8 +43,7 @@ module Decidim
 
         expect(initiative5.reload.author).not_to be_deleted
 
-        expect(initiative6.reload.author).not_to be_deleted
-
+        expect(initiative6.reload.author).to eq(old_user_group)
       end
     end
 
