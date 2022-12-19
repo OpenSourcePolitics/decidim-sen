@@ -21,35 +21,27 @@ module Decidim
     end
 
     def anonymized_initiatives
-      @anonymized_initiatives ||= query.map do |organization, data|
-        data.map do |author, initiatives|
-          anonymize(organization, author, initiatives)
-        end
+      @anonymized_initiatives ||= query.map do |organization, initiatives|
+        anonymize(organization, initiatives)
       end.flatten.compact
     end
 
     # return a hash with the following structure:
     # {
-    #   organization => {
-    #     author => [initiative, initiative, initiative]
-    #   }
+    #   organization => [initiative, initiative, initiative]
     # }
     def query
       Decidim::Initiative.where("decidim_initiatives.created_at < ?", offset_duration)
                          .joins(:organization)
                          .preload(:author)
                          .each_with_object({}) do |initiative, hash|
-        hash[initiative.organization] ||= {}
-        hash[initiative.organization][initiative.author] ||= []
-        hash[initiative.organization][initiative.author] << initiative
+        hash[initiative.organization] ||= []
+        hash[initiative.organization] << initiative unless initiative.author.is_a?(Decidim::UserGroup) || initiative.author.deleted?
       end
     end
 
-    def anonymize(organization, author, initiatives)
-      return if author.is_a?(Decidim::UserGroup)
-      return if author.deleted?
-
-      deleted_user = Decidim::User.create!(
+    def anonymize(organization, initiatives)
+      deleted_user = Decidim::User.where(organization: organization).where.not(deleted_at: nil).first || Decidim::User.create!(
         name: "Deleted user",
         organization: organization,
         deleted_at: Time.current,

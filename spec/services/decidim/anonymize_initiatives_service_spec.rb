@@ -68,24 +68,16 @@ module Decidim
       it "returns initiatives older than 3 years" do
         query = described_class.new.query
 
-        expect(query).to be_a(Hash)
         expect(query.keys).to match_array([organization1, organization2])
 
-        expect(query[organization1]).to be_a(Hash)
-        expect(query[organization1].keys).to match_array([user1, user2, user_group])
-        expect(query[organization1][user1]).to match_array([initiative1, initiative2])
-        expect(query[organization1][user2]).to match_array([initiative3])
-        expect(query[organization1][user_group]).to match_array([initiative6])
-
-        expect(query[organization2]).to be_a(Hash)
-        expect(query[organization2].keys).to match_array([user3])
-        expect(query[organization2][user3]).to match_array([initiative4])
+        expect(query[organization1]).to match_array([initiative1, initiative2, initiative3])
+        expect(query[organization2]).to match_array([initiative4])
       end
     end
 
     describe "#anonymize" do
       it "anonymize initiatives" do
-        anonymize = described_class.new.anonymize(organization1, user1, [initiative1, initiative2])
+        anonymize = described_class.new.anonymize(organization1, [initiative1, initiative2])
 
         expect(anonymize).to eq([initiative1, initiative2])
         expect(anonymize.first.author).to be_deleted
@@ -94,11 +86,14 @@ module Decidim
         expect(anonymize.first.author).to eq(anonymize.last.author)
       end
 
-      context "when author is a user group" do
-        it "anonymize initiatives" do
-          anonymize = described_class.new.anonymize(organization1, user_group, [initiative6])
+      context "when a deleted user already exists" do
+        let!(:deleted_user) { create(:user, :deleted, organization: organization1) }
 
-          expect(anonymize).to eq(nil)
+        it "anonymize initiatives" do
+          anonymize = described_class.new.anonymize(organization1, [initiative1, initiative2])
+
+          expect(anonymize.first.author).to eq(deleted_user)
+          expect(anonymize.last.author).to eq(deleted_user)
         end
       end
     end
