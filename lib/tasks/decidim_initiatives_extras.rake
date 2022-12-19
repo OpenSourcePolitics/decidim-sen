@@ -8,7 +8,7 @@ namespace :decidim_initiatives do
     end
   end
 
-  desc "Anonymize old initiatives (older than 3 years). Use ANONYMIZE_INITIATIVES=x.days to change the time"
+  desc "Anonymize old initiatives (older than 3 years). Use ANONYMIZE_INITIATIVES=x.days to change offset duration"
   task anonymize_initiatives: :environment do
     Decidim::AnonymizeInitiativesService.run
   end
