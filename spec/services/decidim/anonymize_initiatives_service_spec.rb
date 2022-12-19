@@ -49,25 +49,20 @@ module Decidim
 
     describe "#query" do
       it "returns initiatives older than 3 years" do
-        expect(described_class.new.query).to eq(
-                                               organization1 => {
-                                                 user1 => [
-                                                   initiative1,
-                                                   initiative2
-                                                 ],
-                                                 user2 => [
-                                                   initiative3
-                                                 ],
-                                                  user_group => [
-                                                    initiative6
-                                                  ]
-                                               },
-                                               organization2 => {
-                                                 user3 => [
-                                                   initiative4
-                                                 ]
-                                               }
-                                             )
+        query = described_class.new.query
+
+        expect(query).to be_a(Hash)
+        expect(query.keys).to match_array([organization1, organization2])
+
+        expect(query[organization1]).to be_a(Hash)
+        expect(query[organization1].keys).to match_array([user1, user2, user_group])
+        expect(query[organization1][user1]).to match_array([initiative1, initiative2])
+        expect(query[organization1][user2]).to match_array([initiative3])
+        expect(query[organization1][user_group]).to match_array([initiative6])
+
+        expect(query[organization2]).to be_a(Hash)
+        expect(query[organization2].keys).to match_array([user3])
+        expect(query[organization2][user3]).to match_array([initiative4])
       end
     end
 
