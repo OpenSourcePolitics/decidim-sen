@@ -7,18 +7,22 @@ module Decidim
     end
 
     def execute
-      Decidim::Organization.find_each do |organization|
-        Decidim::Initiative.where("created_at < ?", offset_duration).each do |initiative|
-          @deleted_user ||= Decidim::User.where(organization: organization).where.not(deleted_at: nil).first || Decidim::User.create!(
-            name: "Deleted user",
-            organization: organization,
-            deleted_at: Time.current,
-            password: SecureRandom.hex(10),
-            tos_agreement: "1"
-          )
-          Rails.logger.info "Anonymizing initiative #{initiative.id}"
-          initiative.update!(author: @deleted_user)
-        end
+      query
+    end
+
+    # return a hash with the following structure:
+    # {
+    #   organization_id => {
+    #     author_id => [initiative_id]
+    #   }
+    # }
+    def query
+      Decidim::Initiative.where("created_at < ?", offset_duration)
+                         .preload(:organization, :author)
+                         .each_with_object({}) do |initiative, hash|
+        hash[initiative.organization] ||= {}
+        hash[initiative.organization][initiative.author] ||= []
+        hash[initiative.organization][initiative.author] << initiative
       end
     end
 
