@@ -45,6 +45,17 @@ module Decidim
 
         expect(initiative6.reload.author).to eq(old_user_group)
       end
+
+      context "when run twice" do
+        it "doesn't anonymize initiatives" do
+          described_class.run
+          expect(initiative1.reload.author).to be_deleted
+          old_anonymize_author = initiative1.reload.author
+
+          described_class.run
+          expect(initiative1.reload.author).to eq(old_anonymize_author)
+        end
+      end
     end
 
     describe "#query" do

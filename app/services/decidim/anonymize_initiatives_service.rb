@@ -37,6 +37,7 @@ module Decidim
 
     def anonymize(organization, author, initiatives)
       return if author.is_a?(Decidim::UserGroup)
+      return if author.deleted?
 
       deleted_user = Decidim::User.create!(
         name: "Deleted user",
