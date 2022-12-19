@@ -12,6 +12,8 @@ module Decidim
     let!(:user3) { create(:user, :confirmed, organization: organization2) }
     let!(:user4) { create(:user, :confirmed, organization: organization1) }
 
+    let!(:user_group) { create(:user_group, :verified, users: [user1], organization: organization1) }
+
     let!(:authorization) { create(:authorization, user: user1) }
     let!(:authorization2) { create(:authorization, user: user2) }
     let!(:authorization3) { create(:authorization, user: user3) }
@@ -25,9 +27,23 @@ module Decidim
 
     let!(:initiative5) { create(:initiative, organization: organization1, author: user4, created_at: 1.years.ago) }
 
+    let!(:initiative6) { create(:initiative, organization: organization1, author: user_group, created_at: 4.years.ago) }
+
     describe "#execute" do
       it "anonymize initiatives older than 3 years" do
-        skip
+        described_class.run
+
+        expect(initiative1.reload.author).to be_deleted
+        expect(initiative2.reload.author).to be_deleted
+        expect(initiative1.reload.author).to eq(initiative2.reload.author)
+
+        expect(initiative3.reload.author).to be_deleted
+        expect(initiative4.reload.author).to be_deleted
+
+        expect(initiative5.reload.author).not_to be_deleted
+
+        expect(initiative6.reload.author).not_to be_deleted
+
       end
     end
 
@@ -41,7 +57,10 @@ module Decidim
                                                  ],
                                                  user2 => [
                                                    initiative3
-                                                 ]
+                                                 ],
+                                                  user_group => [
+                                                    initiative6
+                                                  ]
                                                },
                                                organization2 => {
                                                  user3 => [
@@ -49,6 +68,26 @@ module Decidim
                                                  ]
                                                }
                                              )
+      end
+    end
+
+    describe "#anonymize" do
+      it "anonymize initiatives" do
+        anonymize = described_class.new.anonymize(organization1, user1, [initiative1, initiative2])
+
+        expect(anonymize).to eq([initiative1, initiative2])
+        expect(anonymize.first.author).to be_deleted
+        expect(anonymize.last.author).to be_deleted
+
+        expect(anonymize.first.author).to eq(anonymize.last.author)
+      end
+
+      context "when author is a user group" do
+        it "anonymize initiatives" do
+          anonymize = described_class.new.anonymize(organization1, user_group, [initiative6])
+
+          expect(anonymize).to eq(nil)
+        end
       end
     end
 

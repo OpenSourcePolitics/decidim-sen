@@ -7,22 +7,45 @@ module Decidim
     end
 
     def execute
-      query
+      Decidim::Initiative.transaction do
+        query.map do |organization, data|
+          data.map do |author, initiatives|
+            anonymize(organization, author, initiatives)
+          end
+        end.flatten.each(&:save!)
+      end
     end
 
     # return a hash with the following structure:
     # {
-    #   organization_id => {
-    #     author_id => [initiative_id]
+    #   organization => {
+    #     author => [initiative, initiative, initiative]
     #   }
     # }
     def query
-      Decidim::Initiative.where("created_at < ?", offset_duration)
-                         .preload(:organization, :author)
+      Decidim::Initiative.where("decidim_initiatives.created_at < ?", offset_duration)
+                         .joins(:organization)
+                         .preload(:author)
                          .each_with_object({}) do |initiative, hash|
         hash[initiative.organization] ||= {}
         hash[initiative.organization][initiative.author] ||= []
         hash[initiative.organization][initiative.author] << initiative
+      end
+    end
+
+    def anonymize(organization, author, initiatives)
+      return if author.is_a?(Decidim::UserGroup)
+
+      deleted_user = Decidim::User.create!(
+        name: "Deleted user",
+        organization: organization,
+        deleted_at: Time.current,
+        password: SecureRandom.hex(10),
+        tos_agreement: "1"
+      )
+
+      initiatives.map do |initiative|
+        initiative.tap { |i| i.author = deleted_user }
       end
     end
 
