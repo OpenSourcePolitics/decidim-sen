@@ -7,15 +7,25 @@ module Decidim
     end
 
     def execute
+      Rails.logger.info "########## Anonymizing initiatives ##########"
+      Rails.logger.info "Ready to anonymize initiatives created before #{offset_duration}"
+      Rails.logger.info "Processing #{anonymized_initiatives.count} initiatives with #{anonymized_initiatives.map(&:author).uniq.count} authors"
+      Rails.logger.info "Anonymizing initiatives..."
+
       Decidim::Initiative.transaction do
-        query.map do |organization, data|
-          data.map do |author, initiatives|
-            anonymize(organization, author, initiatives)
-          end
-        end.flatten
-             .compact
-             .each(&:save!)
+        anonymized_initiatives.each(&:save!)
       end
+
+      Rails.logger.info "Anonymization finished"
+      Rails.logger.info "####################"
+    end
+
+    def anonymized_initiatives
+      @anonymized_initiatives ||= query.map do |organization, data|
+        data.map do |author, initiatives|
+          anonymize(organization, author, initiatives)
+        end
+      end.flatten.compact
     end
 
     # return a hash with the following structure:

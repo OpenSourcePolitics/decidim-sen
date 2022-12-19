@@ -58,6 +58,12 @@ module Decidim
       end
     end
 
+    describe "#anonymized_initiatives" do
+      it "returns the initiatives to be anonymized" do
+        expect(described_class.new.anonymized_initiatives).to match_array([initiative1, initiative2, initiative3, initiative4])
+      end
+    end
+
     describe "#query" do
       it "returns initiatives older than 3 years" do
         query = described_class.new.query
