@@ -119,6 +119,8 @@ ignore_missing:
   - decidim.initiatives.admin.initiatives.update.success
   - decidim.initiatives.admin.initiatives.update.error
   - decidim.admin.exports.notice
+  - decidim.initiatives.initiatives.author.*
+  - activemodel.attributes.group.avatar
 
 # Consider these keys used:
 ignore_unused:
