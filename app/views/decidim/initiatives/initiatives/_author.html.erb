@@ -5,7 +5,6 @@
         <%= image_tag initiative.author_avatar_url, alt: t("avatar", scope: "activemodel.attributes.group") %>
       </span>
       <span class="author__name">
-        <% byebug %>
         <% if initiative.author.deleted? %>
           <span class="label label--small label--basic">
             <%= t(".deleted") %>
