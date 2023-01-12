@@ -5,6 +5,7 @@
   - newsletter
   - newsletters_opt_in
   - events
+  - scheduled
   - metrics
 
 :schedule:
@@ -26,3 +27,6 @@
   CleanSessions:
     cron: '0 1 * * *'
     class: CleanSessions
+  AnonymizeInitiatives:
+    cron: '0 1 * * *' # Run everyday at 1 am
+    class: AnonymizeInitiativesJob
