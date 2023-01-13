@@ -30,3 +30,11 @@
   AnonymizeInitiatives:
     cron: '0 1 * * *' # Run everyday at 1 am
     class: AnonymizeInitiativesJob
+  CleanAdminLogs:
+    cron: "0 9 0 * * *"
+    class: Decidim::Cleaner::CleanAdminLogsJob
+    queue: scheduled
+  CleanInactiveUsers:
+    cron: "0 9 0 * * *"
+    class: Decidim::Cleaner::CleanInactiveUsersJob
+    queue: scheduled
