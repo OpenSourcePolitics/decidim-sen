@@ -158,6 +158,20 @@ en:
           explanation_html: Explanation html
           request_confirmation_instructions: Request confirmation instructions
           title: Title
+    cleaner:
+      inactive_users_mailer:
+        warning_deletion:
+          body_1: Vous êtes inactif depuis %{days} jours sur <a href=\"%{organization_url}\">%{organization_name}</a>.
+          body_2: Par conséquent, votre compte a été supprimé.
+          greetings: Cordialement,<br/>La plateforme de <a href=\"%{organization_url}\">%{organization_name}</a>.
+          hello: Bonjour,
+          warning_deletion: Votre compte a été supprimé
+        warning_inactive:
+          body_1: Vous êtes inactif depuis %{days} jours sur <a href=\"%{organization_url}\">%{organization_name}</a>.
+          body_2: <a href=\"%{organization_url}\">En l'absence d'action de votre part</a> dans les %{remaining_days} jours, votre compte sera supprimé.
+          greetings: Cordialement,<br/>La plateforme de <a href=\"%{organization_url}\">%{organization_name}</a>.
+          hello: Bonjour,
+          warning_deletion: Votre compte est inactif
     data_portability:
       show:
         download_data: Download data
