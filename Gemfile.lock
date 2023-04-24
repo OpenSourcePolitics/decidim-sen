@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-cleaner.git
+  revision: 81f6945fce9650a1508e7bddb3d1f006aea13e07
+  branch: release/0.22-stable
+  specs:
+    decidim-cleaner (0.1.0)
+      decidim-core (= 0.22.0.dev)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git
   revision: b083f1f2e398aa51606ea9adc928394b99b44be1
   branch: 0.dev
@@ -9,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim.git
-  revision: 374b871b5309d4aea4294232c0aecd24b67171a0
+  revision: 0f733013225bc5ab27a1cb23d729fa89c9492867
   branch: alt/petition_merge
   specs:
     decidim (0.22.0.dev)
@@ -930,6 +938,7 @@ DEPENDENCIES
   dalli
   dalli-elasticache
   decidim!
+  decidim-cleaner!
   decidim-dev!
   decidim-initiatives!
   decidim-term_customizer!

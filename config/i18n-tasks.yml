@@ -119,6 +119,8 @@ ignore_missing:
   - decidim.initiatives.admin.initiatives.update.success
   - decidim.initiatives.admin.initiatives.update.error
   - decidim.admin.exports.notice
+  - decidim.initiatives.initiatives.author.*
+  - activemodel.attributes.group.avatar
 
 # Consider these keys used:
 ignore_unused:
@@ -169,3 +171,4 @@ ignore_unused:
   - decidim.verifications.omniauth.authorizations.new.success
   - decidim.verifications.omniauth.errors
   - decidim.verifications.omniauth.errors.anti_affinity
+  - decidim.cleaner.inactive_users_mailer.*
