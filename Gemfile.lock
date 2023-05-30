@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-cleaner.git
-  revision: 81f6945fce9650a1508e7bddb3d1f006aea13e07
+  revision: 9aff3813c1ac2e71e0f41ef201df3a0772cf31b2
   branch: release/0.22-stable
   specs:
-    decidim-cleaner (0.1.0)
+    decidim-cleaner (0.1.1)
       decidim-core (= 0.22.0.dev)
 
 GIT
