@@ -223,6 +223,9 @@ $navbar-background: darken( $title-bar-background, 10%);
   }
 }
 
+// ------------------------------------------------------------------
+// SIGNUP / SIGNIN / PROFILE
+
 .button--social {
   margin: 0 auto;
   white-space: nowrap;
@@ -263,40 +266,6 @@ $navbar-background: darken( $title-bar-background, 10%);
   .button--label b {
     white-space: nowrap;
   }
-
-  // .sessions & {
-  //   &.button--social {
-  //     margin: 0 auto;
-  //
-  //     height: 2.8em;
-  //     margin-bottom: 1rem;
-  //
-  //     .button--social__icon {
-  //       display: block;
-  //       float: left;
-  //       padding: .35em .5em;
-  //       height: 2.5em;
-  //
-  //       .icon {
-  //         width: 2em;
-  //         height: 2em;
-  //       }
-  //     }
-  //
-  //     .button--label {
-  //       display: block;
-  //       padding-top: 0.6em;
-  //       text-align: center;
-  //       line-height: 1.5rem;
-  //
-  //       b {
-  //         font-size: 1.2rem;
-  //       }
-  //     }
-  //   }
-  // }
-
-
 }
 
 .button--social--custom {
@@ -306,8 +275,20 @@ $navbar-background: darken( $title-bar-background, 10%);
   background-color: transparent;
   max-width: 282px;
 
+  img.button--is-hover {
+    display: none;
+  }
+
   &:hover, &:focus {
     background-color: transparent;
+    filter: none;
+
+    img.button--has-hover {
+      display: none;
+    }
+    img.button--is-hover {
+      display: inline-block;
+    }
   }
 }
 
@@ -522,3 +503,4 @@ main.anonymous {
   display: block;
   margin: 0 auto;
 }
+

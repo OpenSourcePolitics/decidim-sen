@@ -5,9 +5,9 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RSPEC_FORMAT: "documentation"
-  RUBY_VERSION: 2.6.5
+  RUBY_VERSION: 2.6.9
   RAILS_ENV: test
-  NODE_VERSION: 16.9.1
+  NODE_VERSION: 22.17.1
 
 jobs:
   lint:

@@ -230,10 +230,12 @@ fr:
           link: https://franceconnect.gouv.fr/
           text: Qu'est-ce-que FranceConnect ?
       france_connect_profile:
-        explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L''auteur d''une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l''authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
+        # explanation: '<b><FONT size="5pt"> Pour déposer une pétition </FONT></b> <br /> <b>L''auteur d''une pétition ne peut être anonyme.</b><br/> <p>Toutefois, le Sénat ne récupère, via l''authentification FranceConnect, que les informations suivantes : <br/> nom, prénom(s), date de naissance, adresse électronique et identifiant technique.<br/> <b>Les noms et prénoms des auteurs de pétition sont publiés avec la pétition.</b><br/> Les autres éléments ne sont pas rendus publics. </p>'
+        explanation: <p><b><font size="4">Pour déposer une pétition</font></b></p><p>FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion à vos services en ligne.</p>
       france_connect_uid:
         anonymous_user: Authentifié(e) avec<br/><b>FranceConnect</b>
-        explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée), tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
+        # explanation: "<b>Pour signer une pétition</b> <br/> <b>La connexion via FranceConnect permet de conserver votre anonymat</b> (aucune donnée personnelle n'est récupérée), tout en garantissant qu'une pétition n'est signée qu'une seule fois par une même personne physique."
+        explanation: <p><b><font size="4">Pour signer une pétition</font></b></p><p>FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion à vos services en ligne.</p>
     pages:
       index:
         title: Pages d'aide
@@ -276,19 +278,21 @@ fr:
       organizations:
         omniauth_settings:
           france_connect_profile:
+            button_hover_path: Chemin de l'image du bouton de survol
             button_path: Chemin de l'image du bouton
             client_id: ID client
             client_secret: Clé secrète
-            end_session_endpoint: Endpoint de déconnexion
             minimum_age: Age minimum
+            post_logout_redirect_uri: Endpoint de retour de déconnexion (Decidim)
             provider_name: Nom du service
             site: URL principale du service
           france_connect_uid:
+            button_hover_path: Chemin de l'image du bouton de survol
             button_path: Chemin de l'image du bouton
             client_id: ID client
             client_secret: Clé secrète
-            end_session_endpoint: Endpoint de déconnexion
             minimum_age: Age minimum
+            post_logout_redirect_uri: Endpoint de retour de déconnexion (Decidim)
             provider_name: Nom du service
             site: URL principale du service
     verifications:

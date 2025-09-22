@@ -11,7 +11,14 @@ module OmniAuth
       option :site
       option :client_id
       option :client_secret
-      option :end_session_endpoint
+      # option :end_session_endpoint
+
+      option :scope, %w(openid email preferred_username)
+      option :client_signing_alg, :ES256
+      option :discovery, true
+      option :response_type, "code"
+      option :client_auth_method, "basic"
+      option :uid_field, "sub"
 
       option :scope, [:openid, :email, :preferred_username]
       option :client_signing_alg, :HS256
@@ -43,40 +50,50 @@ module OmniAuth
       end
 
       def end_session_uri
-        return if client_options.end_session_endpoint.blank?
+        return unless end_session_endpoint_is_valid?
 
-        end_session_uri = URI(options.issuer + client_options.end_session_endpoint)
+        end_session_uri = URI(client_options.end_session_endpoint)
         end_session_uri.query = URI.encode_www_form(
           id_token_hint: credentials[:id_token],
-          state: session_state,
-          post_logout_redirect_uri: "#{full_host}/users/auth/#{options.name}/logout"
+          state: new_state,
+          post_logout_redirect_uri: options.post_logout_redirect_uri
         )
         end_session_uri.to_s
       end
 
-      private
+      def user_info
+        return @user_info if @user_info
 
-      def issuer
-        options.site
+        if access_token.id_token
+          decoded = decode_id_token(access_token.id_token).raw_attributes
+
+          response = access_token.userinfo!
+          response = decode_id_token(response) if response.is_a?(String)
+
+          log :debug, "Userinfo response: #{response.raw_attributes.to_h}"
+
+          @user_info = ::OpenIDConnect::ResponseObject::UserInfo.new response.raw_attributes.merge(decoded).deep_symbolize_keys
+        else
+          @user_info = access_token.userinfo!
+        end
       end
 
-      def client_options
-        site_url = URI(options.site)
+      private
 
-        client_options = {
+      def client_options
+        site_url = URI(options.issuer)
+
+        options.client_options.merge(
           host: site_url.host,
           port: site_url.port,
           identifier: options.client_id,
           secret: options.client_secret,
-          authorization_endpoint: "/api/v1/authorize",
-          token_endpoint: "/api/v1/token",
-          userinfo_endpoint: "/api/v1/userinfo",
-          jwks_uri: "/api/v1/jwk"
-        }
-
-        client_options[:end_session_endpoint] = options.end_session_endpoint if options.end_session_endpoint.present?
-
-        options.client_options.merge client_options
+          authorization_endpoint: "/api/v2/authorize",
+          token_endpoint: "/api/v2/token",
+          userinfo_endpoint: "/api/v2/userinfo",
+          jwks_uri: "/api/v2/jwks",
+          end_session_endpoint: "#{options.issuer}/session/end"
+        )
       end
 
       def redirect_uri
