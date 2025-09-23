@@ -19,10 +19,6 @@ module OmniAuth
       option :response_type, "code"
       option :client_auth_method, "basic"
       option :uid_field, "sub"
-
-      option :scope, [:openid, :email, :preferred_username]
-      option :client_signing_alg, :HS256
-      option :client_auth_method, :body
       option :acr_values, "eidas1"
 
       info do
