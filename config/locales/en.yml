@@ -283,19 +283,23 @@ en:
       organizations:
         omniauth_settings:
           france_connect_profile:
+            button_hover_path: Chemin de l'image du bouton de survol
             button_path: Chemin de l'image du bouton
             client_id: ID client
             client_secret: Clé secrète
             end_session_endpoint: Endpoint de déconnexion
             minimum_age: Age minimum
+            post_logout_redirect_uri: Endpoint de retour de déconnexion (Decidim)
             provider_name: Nom du service
             site: URL principale du service
           france_connect_uid:
+            button_hover_path: Chemin de l'image du bouton de survol
             button_path: Chemin de l'image du bouton
             client_id: ID client
             client_secret: Clé secrète
             end_session_endpoint: Endpoint de déconnexion
             minimum_age: Age minimum
+            post_logout_redirect_uri: Endpoint de retour de déconnexion (Decidim)
             provider_name: Nom du service
             site: URL principale du service
     verifications:

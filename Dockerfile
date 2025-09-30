@@ -10,7 +10,6 @@ RUN curl https://deb.nodesource.com/setup_22.x | bash && \
     npm install -g npm@8.19.2 && \
     npm install --global yarn && \
     apt install -y libicu-dev postgresql-client && \
-    gem install bundler:2.2.17
     gem install bundler:2.2.24
 
 COPY Gemfile* ./
