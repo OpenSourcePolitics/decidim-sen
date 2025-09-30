@@ -7,7 +7,7 @@ module OmniAuth
   module Strategies
     class FranceConnectUid < OmniAuth::Strategies::FranceConnect
       option :name, :france_connect_uid
-      option :scope, %w(openid birthdate)
+      option :scope, %w(openid)
 
       info do
         {
