@@ -6,7 +6,7 @@ module OmniAuth
   module Strategies
     class FranceConnectProfile < OmniAuth::Strategies::FranceConnect
       option :name, :france_connect_profile
-      option :scope, [:email, :openid, :birthdate, :given_name, :family_name]
+      option :scope, %w(openid email given_name family_name birthdate)
 
       info do
         {

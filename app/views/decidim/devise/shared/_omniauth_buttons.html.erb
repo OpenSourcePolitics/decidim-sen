@@ -13,7 +13,12 @@
                 <div class="social-register">
                   <% if provider[:button_path].present? %>
                     <%= link_to decidim.send("user_#{name}_omniauth_authorize_path"), class: "button button--social--custom", method: :post do %>
-                      <%= image_tag provider[:button_path], alt: t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(name).titleize) %>
+                      <% if provider[:button_hover_path].present? %>
+                        <%= image_tag provider[:button_path], class: "button--has-hover", alt: t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(name).titleize) %>
+                        <%= image_tag provider[:button_hover_path], class: "button--is-hover", alt: t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(name).titleize) %>
+                      <% else %>
+                        <%= image_tag provider[:button_path], alt: t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(name).titleize) %>
+                      <% end %>
                     <% end %>
                     <% if I18n.exists?("decidim.omniauth.france_connect.external.link") %>
                       <%= link_to t("link", scope: "decidim.omniauth.france_connect.external"), class: "primary", target: "_blank" do %>

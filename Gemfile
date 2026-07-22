@@ -10,7 +10,7 @@ gem "decidim-initiatives", git: "https://github.com/OpenSourcePolitics/decidim.g
 gem "decidim-cleaner", git: "https://github.com/OpenSourcePolitics/decidim-module-cleaner.git", branch: "release/0.22-stable"
 gem "decidim-term_customizer", git: "https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git", branch: "0.dev"
 
-gem "bootsnap"
+gem "bootsnap", "1.7.5"
 gem "puma", ">= 4.3"
 gem "uglifier"
 
@@ -22,8 +22,8 @@ gem "wkhtmltopdf-binary"
 
 gem "activerecord-session_store"
 
-gem "omniauth_openid_connect", "0.3.1"
-gem "openid_connect", "~> 1.3"
+gem "faraday", "2.8.1"
+gem "omniauth_openid_connect", "~> 0.8.0"
 
 gem "ruby-progressbar"
 gem "rubyzip", require: "zip"
@@ -31,7 +31,8 @@ gem "sentry-raven"
 
 gem "dotenv-rails"
 gem "health_check"
-gem "rails", "5.2.4.4"
+gem "rack-attack", "~> 6.0"
+gem "rails", "5.2.6"
 gem "sidekiq_alive"
 
 group :development, :test do

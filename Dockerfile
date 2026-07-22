@@ -1,16 +1,16 @@
-FROM ruby:2.6.5
+FROM ruby:2.6.9
 
 ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=dummy
 
 # Install NodeJS
-RUN curl https://deb.nodesource.com/setup_lts.x | bash && \
+RUN curl https://deb.nodesource.com/setup_22.x | bash && \
     apt install -y nodejs && \
     apt update && \
     npm install -g npm@8.19.2 && \
     npm install --global yarn && \
     apt install -y libicu-dev postgresql-client && \
-    gem install bundler:2.2.17
+    gem install bundler:2.2.24
 
 COPY Gemfile* ./
 RUN bundle config set --local without 'development test' && bundle install
